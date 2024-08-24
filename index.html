@@ -1,11 +1,121 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!--puse el idioma en español-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mate-Style</title>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
+    <header>
+        <nav><!--Nav donde se encuentra el logo con un enlace para volver hacia el inicio y una lista con cada una de las distintas secciones del menu-->
+            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo" width="150" height="150"></a>
+            <li>
+                <ol><a href="mates.html">Mates</a></ol>
+                <ol><a href="bombillas.html">Bombillas</a></ol>
+                <ol><a href="termos.html">Termos</a></ol>
+                <ol><a href="accesorios.html">Accesorios</a></ol>
+            </li>
+            <button>
+                <img src="Img/carrito.png" alt="Carrito-Compras"></a><!--Carrito de compras-->
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
+            <div><!--Div con la parte de los productos del carrito-->
+                <!--aca irian los productos que esten en el carrito (imagen, nombre y precio). No se si tengo que crear un modelo desde aca o con lo que aprenderemos luego crearlo.-->
+                <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
+            </div>
+            <div><!--Div con el boton comprar-->
+                <a href="carrito_pago.html"><button type="submit">Comprar</button></a>
+            </div>
+        </section>
+        <section><!--Section con la imagen hero con el slogan de la empresa, ademas agregue las etiquetas br para realizar un salto de linea.-->
+                <img src="Img/hero.jpg" alt="imagen-hero">
+                <h1>Descubre el arte del mate.<br> Tradición, estilo y calidad <br> en cada sorbo.</h1>
+        </section>
+        <section><!--Section con las imagenes para ir a la secciones de productos-->
+            <a href="mates.html"><!--boton con la imagen para ir a la seccion mates-->
+                <button>
+                    <img src="Img/mates.jpg" alt="imagen-mates">
+                    <div>
+                        <h2>Mates</h2>
+                    </div>
+                </button>
+            </a>
+            <a href="bombillas.html"><!--boton con la imagen para ir a la seccion bombillas-->
+                <button>
+                    <img src="Img/bombillas.jpg" alt="imagen-bombillas">
+                    <div>
+                        <h2>Bombillas</h2>
+                    </div>
+                </button>
+            </a>
+            <a href="termos.html"><!--boton con la imagen para ir a la seccion termos-->
+                <button>
+                    <img src="Img/termos.png" alt="imagen-termos">
+                    <div>
+                        <h2>Termos</h2>
+                    </div>
+                </button>
+            </a>
+            <a href="accesorios.html"><!--boton con la imagen para ir a la seccion accesorios-->
+                <button>
+                    <img src="Img/accesorios.jpg" alt="imagen-accesorios">
+                    <div>
+                        <h2>Accesorios</h2>
+                    </div>
+                </button>
+            </a>
+        </section>
+        <section><!--Section con la informacion sobre Mate-Style-->
+            <h3>Mate-Style</h3>
+            <p>En Mate-Style, transformamos tu ritual del mate en una experiencia completa. Conectamos a los amantes del mate con una exclusiva selección de mates, termos, bombillas y accesorios diseñados para elevar cada sorbo. Desde elegantes mates que reflejan tu estilo, hasta termos que mantienen la temperatura ideal y bombillas de alta calidad para disfrutar de cada infusión, ofrecemos todo lo necesario para disfrutar del mate en su máxima expresión. Explora nuestra gama de productos y encuentra los accesorios perfectos para acompañar tus momentos de relax y compartir con amigos. </p>
+        </section>
+        <section><!--Section con la informacion sobre ¿Quienes somos?-->
+            <h3>¿Quiénes somos?</h3>
+            <p>En Mate-Style, somos distribuidores especializados en productos para el mate, ubicados en Villa Dolores, Córdoba. Nos esforzamos por brindar un servicio personalizado, asegurando que cada cliente encuentre lo que busca para disfrutar de su ritual del mate con total satisfacción. Nuestra pasión por el mate y nuestra dedicación al detalle son lo que nos distingue</p>
+        </section>
+        <section><!--Section con la informacion sobre la compra resumida-->
+            <div><!--Div con la info de pagos-->
+                <img src="Img/pagos-tarjeta.png" alt="Logo-Pagos">
+                <h4>Pagos</h4>
+                <p>Débito, transferencia y tarjeta de crédito (3,6 y 12 cuotas)</p>
+            </div>
+            <div><!--Div con la info de compra online-->
+                <img src="Img/internet.png" alt="Logo-Online">
+                <h4>Pagos</h4>
+                <p>Realiza tu compra desde casa.</p>
+            </div>
+            <div><!--Div con la info de envios-->
+                <img src="Img/envios.png" alt="Logo-Envíos">
+                <p>Gratis a todo el país.</p>
+            </div>
+            <div><!--Div con la info de los datos al momento de comprar-->
+                <img src="Img/seguro.png" alt="Logo-Seguro">
+                <h4>Seguro</h4>
+                <p>Tus datos estan protegidos.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section><!--Section con todas las redes sociales-->
+            <li>
+                <ol><a href=""><img src="Img/instagram.png" alt="Instagram"></a></ol>
+                <ol><a href=""><img src="Img/facebook.png" alt="Facebook"></a></ol>
+                <ol><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></ol>
+                <ol><a href=""><img src="Img/x.png" alt="X"></a></ol>
+            </li>
+        </section>
+        <section><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
+            <p>Teléfono: 3544-400400</p>
+            <p>|</p>
+            <p>informate_style@gmail.com</p>
+            <p>|</p>
+            <p>17 de Agosto, Villa Dolores, Córdoba</p>
+            <p>|</p>
+            <p><a href="pregFrec.html">Preguntas frecuentes</a></p>
+        </section>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate-Style|Accesorios</title>
+</head>
+<body>
+    <header>
+        <nav><!--Nav donde se encuentra el logo con un enlace para volver hacia el inicio y una lista con cada una de las distintas secciones del menu-->
+            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo"width="150" height="150"></a>
+            <li>
+                <ol><a href="mates.html">Mates</a></ol>
+                <ol><a href="bombillas.html">Bombillas</a></ol>
+                <ol><a href="termos.html">Termos</a></ol>
+                <ol><a href="accesorios.html">Accesorios</a></ol>
+            </li>
+            <button>
+                <img src="Img/carrito.png" alt="Carrito-Compras"></a><!--Carrito de compras-->
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
+            <div><!--Div con la parte de los productos del carrito-->
+                <!--Explicado en el index-->
+            </div>
+            <div><!--Div con el boton comprar-->
+                <a href="carrito_pago.html"><button type="submit" id="comprar-carrito">Comprar</button></a>
+            </div>
+        </section>
+        <section><!--Section con el titulo de la seccion, accesorios y una linea-->
+            <h1>Accesorios</h1>
+            <hr>
+        </section>
+        <section><!--Section con el filtro por precio y los productos.-->
+            <div> <!--Div con el sector para realizar una busqueda por el rango de precio, teniendo un minimo y un maximo y un boton aplicar-->
+                <label id="Rango-precio">Rango de precio:</label>
+                <input type="number" placeholder="Minimo" id="Rango-precio">
+                <input type="number" placeholder="Maximo"id="Rango-precio">
+                <button type="submit" id="Rango-precio">APLICAR</button>
+            </div>
+            <div><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->>
+                <img src="Img/producto-accesorio1.png" alt="Producto-Accesorio1">
+                <p>Bolso Matero Cuero Negro</p>
+                <p>$15000</p>
+                <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section><!--Section con todas las redes sociales-->
+            <li>
+                <ol><a href=""><img src="Img/instagram.png" alt="Instagram"></a></ol>
+                <ol><a href=""><img src="Img/facebook.png" alt="Facebook"></a></ol>
+                <ol><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></ol>
+                <ol><a href=""><img src="Img/x.png" alt="X"></a></ol>
+            </li>
+        </section>
+        <section><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
+            <p>Teléfono: 3544-400400</p>
+            <p>|</p>
+            <p>informate_style@gmail.com</p>
+            <p>|</p>
+            <p>17 de Agosto, Villa Dolores, Córdoba</p>
+            <p>|</p>
+            <p><a href="pregFrec.html">Preguntas frecuentes</a></p>
+        </section>
+    </footer>
+</body>
+</html>
