@@ -3,92 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mate-Style|Finaliza tu compra</title>
+    <link rel="icon" href="Img/img-pestaña.png" type="image/png">
+    <title>Mate-Style| Finaliza tu compra</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav><!--Nav donde se encuentra el logo con un enlace para volver hacia el inicio y una lista con cada una de las distintas secciones del menu-->
-            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo"width="150" height="150"></a>
-            <li>
-                <ol><a href="mates.html">Mates</a></ol>
-                <ol><a href="bombillas.html">Bombillas</a></ol>
-                <ol><a href="termos.html">Termos</a></ol>
-                <ol><a href="accesorios.html">Accesorios</a></ol>
-            </li>
+    <header class = "header-2">
+        <div>
+            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo" width="150" height="150" id="img-logo"></a>
+        </div>
+        <nav><!--Nav donde se encuentra el logo con un enlace para volver hacia el inicio y una lista con cada una de las distintas secciones del menu, ademas del carrito-->                   
+                <ul>
+                    <li><a href="mates.html">MATES</a></li>
+                    <li><a href="bombillas.html">BOMBILLAS</a></li>
+                    <li><a href="termos.html">TERMOS</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                </ul>
         </nav>
     </header>
     <main>
-        <section> <!--Section con la informacion necesaria para realizar la compra (inputs) y la vista del carrito.-->     
-            <div><!--Div con la parte superior del section con finaliza tu compra y una linea-->
+        <section class="contenedor-pago"> <!--Section con la informacion necesaria para realizar la compra (inputs) y la vista del carrito.-->     
+            <div class="titulo-compra"><!--Div con la parte superior del section con finaliza tu compra y una linea-->
                 <h1>Finalizá tu compra</h1>
                 <hr>
             </div>
-            <div> <!--div con el carrito y el total-->
-                <div><!--Div con la parte de los productos del carrito-->
+            <div class="carrito-pago"> <!--div con el carrito y el total-->
+                <div class="productos-carrito-pago"><!--Div con la parte de los productos del carrito-->
+                    <h2>Productos</h2>
                     <!--aca irian los productos que esten en el carrito (imagen, nombre y precio)-->
                     <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
+                    <hr>
                 </div>
-                <div><!--Div con el total-->
-                    <p>Total: <span><!--Aca va el total del producto--></span></p> <!--Va dentro de un span para luego poder modificarlo desde css de manera individual-->
+                <div class="total-pago"><!--Div con el total-->
+                    <p>Total:</p>
+                    <p>$0</p>
                 </div>
             </div>
-            <div><!--Div con el formulario-->
-                <form action="">
+                <div class="contenedor-datos-usuario">
                     <h2>Datos Personales:</h2>
-                    <label for="">Nombre completo</label> <!--Label e input para colocar el nombre completo del cliente, requerido para enviar el formulario-->
-                        <input type="text" placeholder="Insertá tu nombre aquí" required>
-                    <label for="">Email</label><!--Label e input para colocar el Email del cliente, es requerido para poder enviar el formulario-->
-                        <input type="email" placeholder="Insertá tu Email aquí" required>
-                    <label for="">Teléfono</label> <!--Label e input para colocar el telefono del cliente-->
-                        <input type="number" placeholder="Insertá tu número aquí">
-                    <label for="">DNI</label><!--Label e input para colocar el DNI del cliente, es requerido para enviar el formulario-->
-                        <input type="number" placeholder="Insertá tu DNI aquí" required>
-                    <hr><!--Linea para separar los datos personales de los datos de la tarjeta-->
+                    <form action="" id="form-datos-personales">
+                        <label for="nombre-form">Nombre completo</label> <!--Label e input para colocar el nombre completo del cliente, requerido para enviar el formulario-->
+                            <input type="text" id="nombre-form" placeholder="Insertá tu nombre aquí" required>
+                        <label for="email-form">Email</label><!--Label e input para colocar el Email del cliente, es requerido para poder enviar el formulario-->
+                            <input type="email" id="email-form" placeholder="Insertá tu Email aquí" required>
+                        <label for="telefono-form">Teléfono</label> <!--Label e input para colocar el telefono del cliente-->
+                            <input type="number" id="telefono-form" placeholder="Insertá tu número aquí">
+                        <label for="dni-form">DNI</label><!--Label e input para colocar el DNI del cliente, es requerido para enviar el formulario-->
+                            <input type="number" id="dni-form" placeholder="Insertá tu DNI aquí" required>
+                    </form>
+                </div> 
+                <div class="contenedor-datos-tarjeta">
                     <h2>Datos de la tarjeta</h2>
-                    <label for="">Forma de pago</label> <!--Label con un select para seleccionar la forma de pago que es requerida, teniendo las opcionas 1 y 2 y la 0 que luego no se mostrara.-->
-                        <select name="" id="forma-de-pago" required>
-                            <option value="0">Selecciona tu forma de pago</option>
-                            <option value="1" id="forma-de-pago">Débito</option>
-                            <option value="2" id="forma-de-pago">Crédito</option>
-                        </select>
-                    <label for="">Cuotas</label> <!--Label con un select para seleccionar las cuotas, si es debito, no se podra seleccionar cuotas. Quedara fija en 1, es requerido.-->
-                        <select name="" id="cuotas" required>
-                            <option value="1">1</option>
-                            <option value="2">3</option>
-                            <option value="3">6</option>
-                            <option value="4">12</option>
-                        </select>
-                    <label for="">Número de la tarjeta</label> <!--Label e input para colocar el numero de tarjeta del cliente-->
-                        <input type="number" placeholder="9999-9999-9999-9999" required>
-                    <label for="">Nombre Titular</label> <!--Label e input para colocar el nombre del titular de la tarjeta del cliente-->
-                        <input type="text" placeholder="Insertá el nombre aquí" required>
-                    <label for="">Fecha de Vencimiento</label> <!--Label e input para seleccionar mes y año de fecha de vencimiento de la tarjeta-->
-                        <input type="month" required>
-                    <label for="">CVC</label> <!--Label e input para colocar el codigo de seguridad de la tarjeta.-->
-                        <input type="number" placeholder="999" required>
-                    <button type="submit">Comprar</button> <!--Boton de tipo submit para enviar el formulario a la direccion necesaria-->
-                </form>
-                <!--El boton comprar, una vez se envia el formulario con JS vamos a hacer que nos redireccione a la pagina pago_realizado.html dejo un boton provisorio para la visibilidad de la misma-->
-                <a href="pago_realizado.html"><button>boton provisorio</button></a><!--Este boton luego cuando integremos JS lo voy a sacar del HTML-->
-
-            </div>
+                    <form action="" id="form-datos-tarjeta">
+                        <label for="forma-de-pago">Forma de pago</label> <!--Label con un select para seleccionar la forma de pago que es requerida, teniendo las opcionas 1 y 2 y la 0 que luego no se mostrara.-->
+                            <select name="" id="forma-de-pago" required>
+                                <option value="0" disabled selected hidden>Selecciona tu forma de pago</option>
+                                <option value="1" >Débito</option>
+                                <option value="2">Crédito</option>
+                            </select>
+                        <label for="cuotas-form">Cuotas</label> <!--Label con un select para seleccionar las cuotas, si es debito, no se podra seleccionar cuotas. Quedara fija en 1, es requerido.-->
+                            <select name="" id="cuotas-form" required>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="3">6</option>
+                                <option value="4">12</option>
+                            </select>
+                        <label for="nro-tarjeta-form">Número de la tarjeta</label> <!--Label e input para colocar el numero de tarjeta del cliente-->
+                            <input type="number" id="nro-tarjeta-form" placeholder="9999-9999-9999-9999" required>
+                        <label for="nombre-tarjeta-form">Nombre Titular</label> <!--Label e input para colocar el nombre del titular de la tarjeta del cliente-->
+                            <input type="text" id="nombre-tarjeta-form" placeholder="Insertá el nombre aquí" required>
+                        <label for="fecha-ven-form">Fecha de Vencimiento</label> <!--Label e input para seleccionar mes y año de fecha de vencimiento de la tarjeta-->
+                            <input type="month" id="fecha-ven-form" required>
+                        <label for="cvc">CVC</label> <!--Label e input para colocar el codigo de seguridad de la tarjeta.-->
+                            <input type="number" id="cvc" placeholder="Ingresa aqui tu CVC" required>
+                    </form>
+                </div>
+                <div class="contenedor-boton-formulario">
+                    <button type="submit">Comprar</button><!--Boton de tipo submit para enviar el formulario a la direccion necesaria-->
+                </div><!--El boton comprar, una vez se envia el formulario con JS vamos a hacer que nos redireccione a la pagina pago_realizado.html-->
         </section>
     </main>
     <footer>
-        <section><!--Section con todas las redes sociales-->
-            <li>
-                <ol><a href=""><img src="Img/instagram.png" alt="Instagram"></a></ol>
-                <ol><a href=""><img src="Img/facebook.png" alt="Facebook"></a></ol>
-                <ol><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></ol>
-                <ol><a href=""><img src="Img/x.png" alt="X"></a></ol>
-            </li>
+        <section class="contenedor-redes"><!--Section con todas las redes sociales-->
+            <ul>
+                <li><a href=""><img src="Img/instagram.png" alt="Instagram"></a></li>
+                <li><a href=""><img src="Img/facebook.png" alt="Facebook"></a></li>
+                <li><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></li>
+                <li><a href=""><img src="Img/x.png" alt="X"></a></li>
+            </ul>
+            <br>
         </section>
-        <section><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
+        <section class="contenedor-contacto"><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
             <p>Teléfono: 3544-400400</p>
             <p>|</p>
             <p>informate_style@gmail.com</p>
             <p>|</p>
-            <p>17 de Agosto, Villa Dolores, Córdoba</p>
+            <p><a href="https://maps.app.goo.gl/otc5F2dS5zT5y8Eg9" target="_blank">17 de Agosto, Villa Dolores, Córdoba</a></p>
             <p>|</p>
             <p><a href="pregFrec.html">Preguntas frecuentes</a></p>
         </section>
