@@ -703,6 +703,11 @@ main{
     font-weight: 700;
 }
 
+.contenedor-boton-formulario a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .contenedor-boton-formulario button:hover{
     background-color: #506b0f;
     cursor: pointer;
