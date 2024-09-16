@@ -3,66 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mate-Style|Termos</title>
+    <link rel="icon" href="Img/img-pestaña.png" type="image/png">
+    <title>Mate-Style| Termos</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav><!--Nav donde se encuentra el logo con un enlace para volver hacia el inicio y una lista con cada una de las distintas secciones del menu-->
-            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo" width="150" height="150"></a>
-            <li>
-                <ol><a href="mates.html">Mates</a></ol>
-                <ol><a href="bombillas.html">Bombillas</a></ol>
-                <ol><a href="termos.html">Termos</a></ol>
-                <ol><a href="accesorios.html">Accesorios</a></ol>
-            </li>
-            <button>
-                <img src="Img/carrito.png" alt="Carrito-Compras"></a><!--Carrito de compras-->
-            </button>
+    <header class = "header-1">
+        <div> <!--div con el logo para volver al inicio-->
+            <a href="index.html"><img src="Img/logo.png" alt="Mate-Style-Logo" width="150" height="150" id="img-logo"></a>
+        </div>
+        <nav><!--Nav donde se encuentra  una lista con cada una de las distintas secciones del menu-->                   
+                <ul>
+                    <li><a href="mates.html">MATES</a></li>
+                    <li><a href="bombillas.html">BOMBILLAS</a></li>
+                    <li><a href="termos.html" id="termo-enlace">TERMOS</a></li>
+                    <li><a href="accesorios.html">ACCESORIOS</a></li>
+                </ul>
         </nav>
+        <div> <!--div con el boton del carrito-->
+            <button>
+                <img src="Img/carrito.png" alt="Carrito-Compras" id="img-carrito"><!--Carrito de compras-->
+            </button>
+        </div>
     </header>
     <main>
-        <section><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
-            <div><!--Div con la parte de los productos del carrito-->
-                <!--Explicado en el index-->
+        <section class="contenedor-carrito"><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
+            <div class="carrito-productos"><!--Div con la parte de los productos del carrito-->
+                <!--aca irian los productos que esten en el carrito (imagen, nombre y precio). No se si tengo que crear un modelo desde aca o con lo que aprenderemos luego crearlo.-->
+                <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
             </div>
-            <div><!--Div con el boton comprar-->
+            <div id="carrito-comprar"><!--Div con el boton comprar-->
                 <a href="carrito_pago.html"><button type="submit">Comprar</button></a>
             </div>
         </section>
-        <section><!--Section con el titulo de la seccion, en este caso termos y una linea-->
+        <section class="contenedor-titulo"><!--Section con el titulo de la seccion, en este caso termos y una linea-->
             <h1>Termos</h1>
             <hr>
         </section>
-        <section><!--Section con el filtro por precio y los productos.-->
-            <div> <!--Div con el sector para realizar una busqueda por el rango de precio, teniendo un minimo y un maximo y un boton aplicar-->
-                <label id="Rango-precio">Rango de precio:</label>
-                <input type="number" placeholder="Minimo" id="Rango-precio">
-                <input type="number" placeholder="Maximo"id="Rango-precio">
-                <button type="submit" id="Rango-precio">APLICAR</button>
+        <section class= "contenedor-galeria-productos"><!--Section con el filtro por precio y los productos.-->
+            <div class="contenedor-interno-filtro"> <!--Div con el sector para realizar una busqueda por el rango de precio, teniendo un minimo y un maximo y un boton aplicar-->
+                <form action="">
+                    <label for="rango-precio-min">Rango de precio:</label>
+                    <input type="number" placeholder="Mínimo" id="rango-precio-min" min="0">
+                    <input type="number" placeholder="Máximo" id="rango-precio-max" min="0">
+                    <button type="submit" id="aplicar-rango-precio">APLICAR</button>
+                </form>
             </div>
-            <div><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->>
-                <img src="Img/producto-termo1.png" alt="Producto-termo1">
-                <p>Termo Stanley Negro</p>
-                <p>$35000</p>
-                <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+            <div class="contenedor-de-productos">
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
+                <div class = "producto-unitario"><!--Div con la estructura de un producto termo que luego va a poder ser creado mediante JS las veces que necesitemos-->
+                    <img src="Img/producto-termo1.png" alt="Producto-termo1">
+                    <p>Termo Stanley Negro</p>
+                    <h3>$35000</h3>
+                    <button type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
+                </div>
             </div>
         </section>
     </main>
     <footer>
-        <section><!--Section con todas las redes sociales-->
-            <li>
-                <ol><a href=""><img src="Img/instagram.png" alt="Instagram"></a></ol>
-                <ol><a href=""><img src="Img/facebook.png" alt="Facebook"></a></ol>
-                <ol><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></ol>
-                <ol><a href=""><img src="Img/x.png" alt="X"></a></ol>
-            </li>
+        <section class="contenedor-redes"><!--Section con todas las redes sociales-->
+            <ul>
+                <li><a href=""><img src="Img/instagram.png" alt="Instagram"></a></li>
+                <li><a href=""><img src="Img/facebook.png" alt="Facebook"></a></li>
+                <li><a href=""><img src="Img/tiktok.png" alt="TikTok"></a></li>
+                <li><a href=""><img src="Img/x.png" alt="X"></a></li>
+            </ul>
+            <br>
         </section>
-        <section><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
+        <section class="contenedor-contacto"><!--Section con la informacion de contacto y preguntas frecuentes con un enlace-->
             <p>Teléfono: 3544-400400</p>
             <p>|</p>
             <p>informate_style@gmail.com</p>
             <p>|</p>
-            <p>17 de Agosto, Villa Dolores, Córdoba</p>
+            <p><a href="https://maps.app.goo.gl/otc5F2dS5zT5y8Eg9" target="_blank">17 de Agosto, Villa Dolores, Córdoba</a></p>
             <p>|</p>
             <p><a href="pregFrec.html">Preguntas frecuentes</a></p>
         </section>
