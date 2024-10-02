@@ -409,6 +409,35 @@ iframe{
     border-radius: 15px;
 }
 
+.table td {
+    font-size: 1rem; 
+    color: #262B30; 
+    background-color: #d1d1d1;
+}
+
+.table thead th {
+    background-color: #6B8E23; 
+    color: #ffffff; 
+    font-size: 1.1rem;
+}
+
+.container{
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.container h5{
+    font-size: 1.7rem !important;
+    background-color: #4f691a;
+    width: 100%;
+    border-radius:10px 10px 0 0;
+    margin: 0;
+    color: #fff;
+    padding: 15px;
+}
+
+
 /*MAIN (PAGO_REALIZADO.HTML)*/
 
 .contenedor-compra-realizada{
@@ -1040,7 +1069,6 @@ footer{
         padding: 1vw;
         height: auto;
         justify-content: flex-start;
-
     }
 
     .info-impor {
@@ -1079,9 +1107,25 @@ footer{
     }
 
     .carrusel{
-        width: 52vw;
-        
+        width: 52vw;      
     }
+
+    .table td {
+            font-size: 0.9rem; 
+        }
+        
+    .table thead th {
+            font-size: 1rem; 
+        }
+    
+        .container h5 {
+            font-size: 1.5rem; 
+        }
+    
+        .container {
+            margin-top: 60px;
+            margin-bottom: 60px; 
+        }
 
     /*MAIN (PAGO_REALIZADO.HTML)*/
 
@@ -1370,6 +1414,23 @@ footer{
         height: 2px;
     }
 
+    .table td {
+        font-size: 0.6rem; 
+    }
+
+    .table thead th {
+        font-size: 0.7rem; 
+    }
+
+    .container h5 {
+        font-size: 1rem !important; 
+    }
+
+    .container {
+        margin-top: 40px; 
+        margin-bottom: 40px; 
+    }
+
     /*MAIN (PAGO_REALIZADO.HTML)*/
 
     .contenedor-compra-realizada h1 {
@@ -1621,6 +1682,24 @@ footer{
 
     .carrusel img{
         height: 18vh;
+    }
+
+    .table td {
+        padding: 0.2rem; 
+        font-size: 0.5rem !important;
+    }
+
+    .table thead th {
+        font-size: 0.55rem; 
+    }
+
+    .container h5 {
+        font-size: 0.8rem !important; 
+    }
+
+    .container {
+        margin: 10px;
+        width: 100%;
     }
 
     /*MAIN (PAGO_REALIZADO.HTML)*/
