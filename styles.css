@@ -45,6 +45,10 @@ nav {
     align-items: center;
 }
 
+.navbar {
+    display: none !important;
+}
+
 .header-3 nav {
     display: flex;
     width: 20%;
@@ -123,7 +127,7 @@ header a:hover{
 }
 
 /*colores fijos para cada seccion una vez dentro de esta*/
-#accesorio-enlace, #termo-enlace, #bombilla-enlace, #mate-enlace {
+#accesorio-enlace, #termo-enlace, #bombilla-enlace, #mate-enlace, #carrito-enlace {
     color: #F5F5DC;
 }
 
@@ -644,6 +648,7 @@ iframe{
     font-size: 0.9vw;
     background-color: #6B8E23;
     cursor: pointer;
+    color: #262B30;
 }
 
 .producto-unitario button:hover{
@@ -1541,6 +1546,106 @@ footer{
 
 @media (max-width: 480px) {
 
+    .contenedor-inicio{
+        display: none;
+    }
+
+    .nav-header-normal{
+        display: none;
+    }
+
+    .contenedor-carrito-inicio{
+        display: none;
+    }
+
+    .navbar {
+        display: block !important;
+    }
+
+    .container-fluid{
+        background-color: #6B8E23 !important;
+        
+    }
+
+    .offcanvas{
+        height: 325px;
+        width: 40vw !important;
+        background-color: #6b9616 !important;
+        border-radius: 0 0 0 15px;
+        display: grid;
+        grid-template-rows: 1fr 5fr !important;
+        grid-template-areas:
+        "menus"
+        "contenido"
+        !important;
+    }
+
+    .offcanvas-header{
+        display: flex;
+        background-color: #6b9616;
+        grid-area: menus !important;
+        height: 10%;
+        margin-bottom: 30px;
+        color: #F5F5DC;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .btn-close{
+        height: 20px !important;
+        width: 20px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        opacity: 1 !important; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-close p{
+        margin: 0;
+        padding: 0;
+        color: #F5F5DC !important;
+        font-size: 1.5rem;
+        font-weight: 600;
+        opacity: 1 !important;
+    }
+
+    .offcanvas-body{
+        background-color: #72a018;
+        grid-area: contenido;
+        height: 70% !important;
+        width: 85%;
+        padding: 0 !important;
+        margin: 0;
+        flex-direction: column ;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        flex-grow: 0 !important;
+        border-radius: 15px;
+        box-shadow: 1px 1px 5px ;
+    }
+
+    .offcanvas-body ul{
+        margin-left: 10px;
+        padding-left: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .offcanvas-body li{
+        font-size: 0.7rem !important;
+        margin: 10px 0 10px 0;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+
     /*diseño del header*/
     header {
         font-size: 0.5rem; 
@@ -1562,7 +1667,7 @@ footer{
     }
 
     #img-carrito {
-        height: 5vh; 
+        height: 3vh; 
     }
 
     /*MAIN (INDEX.HTML)*/
@@ -1590,7 +1695,7 @@ footer{
     }
 
     .contenedor-info-nosotros {
-        width: 100vw;
+        width: 100%;
         padding: 5px;
     }
 
@@ -1704,11 +1809,11 @@ footer{
 
     /*MAIN (PAGO_REALIZADO.HTML)*/
     .contenedor-compra-realizada h1 {
-        font-size: 0.8rem ;
+        font-size: 1rem ;
     }
 
     .contenedor-compra-realizada p {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     /*MAIN (mates, bombillas, accesorios y termos)*/
@@ -1719,37 +1824,37 @@ footer{
     }
 
     .contenedor-titulo h1{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
     .contenedor-titulo hr{
-        height: 2.5px;
-        width: 40%;
+        height: 4px;
+        width: 50%;
     }
 
     .contenedor-interno-filtro {
         padding: 0.5vh;
-    }
-
-    .contenedor-interno-filtro{
         width: 22vw;
     }
 
     .contenedor-interno-filtro label {
-        font-size: 0.6rem;
+        font-size: 1rem;
         margin: 0;
+        margin-bottom: 10px;
     }
 
     .contenedor-interno-filtro input {
         width: 100%;
-        font-size: 0.4rem;
-        height: 2vh;
-        margin-bottom: 2px;
+        font-size: 0.7rem;
+        height: 3vh;
+        margin-bottom: 10px;
+        border-radius: 50px;
     }
 
     .contenedor-interno-filtro button {
         width: 100%;
-        font-size: 0.4rem;
+        font-size: 0.7rem;
+        height: 30px;
     }
 
     .contenedor-de-productos {
@@ -1758,20 +1863,26 @@ footer{
     }
 
     .producto-unitario {
-        width: 70%;
-        height: 25vh;
+        width: 90%;
+        height: 35vh;
     }
 
     .producto-unitario p {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
+        height: auto;
+        padding: 3px;
+        margin-top: 5px;
+        margin-left: 3px ;
     }
 
     .producto-unitario h3 {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
+        height: auto;
+        padding: 6px;
     }
 
     .producto-unitario button {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
 
     /* MAIN (CARRITO_PAGO.HTML)*/
