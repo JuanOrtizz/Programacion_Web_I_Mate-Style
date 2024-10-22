@@ -1,6 +1,4 @@
 import Producto from "./Producto.js" 
-// Dar un alert con la bienvenida a la pagina
-alert("Bienvenido")
 
 //creo los objetos dentro de un array para los productos.
 const productos = [
