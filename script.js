@@ -50,6 +50,14 @@ function crearNuevoProducto(){
     console.log("Producto agregado con exito!")
 }
 
+function calcularTotalCarrito(){
+    let totalCarrito = 0
+    for(let producto of carrito){
+        totalCarrito += producto.precio
+    }
+    console.log("Total: " + totalCarrito.toFixed(2)) // para que tenga 2 decimales
+}
+
 // funcion para agregar un producto al carrito por ahora con un indice, luego va a ser con el boton agregar al carrito
 function agregarProductoCarrito() {
     alert("Estas por agregar un nuevo producto al carrito")
@@ -91,6 +99,7 @@ function mostrarCarrito(){
         for(let productoCarrito of carrito){
             console.log(productoCarrito.imprimirInformacion())
         }
+        calcularTotalCarrito()
     }else{
         console.log("No hay productos en tu carrito")
     }
