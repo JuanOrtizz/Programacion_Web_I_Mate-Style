@@ -1,7 +1,8 @@
 class Producto{ // creo la clase producto, para manejar de forma mas modular el codigo.
-    constructor(nombre, precio){
+    constructor(imagen, nombre, precio){
+        this.imagen = imagen
         this.nombre = nombre
-        this.precio = parseFloat(precio)
+        this.precio = precio
     }
 
     imprimirInformacion(){
