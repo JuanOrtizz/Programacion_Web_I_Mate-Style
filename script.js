@@ -357,6 +357,75 @@ import Producto from "./Producto.js"
 //     productosCarrito.appendChild(productoCarrito);
 // }
 
+const precioMinimo = document.getElementById('rango-precio-min');
+const precioMaximo = document.getElementById('rango-precio-max');
+const productos = document.querySelectorAll('.producto-unitario');
+
+const productosOriginales = Array.from(productos).map(producto => {
+    return {
+        producto: producto,
+        displayOriginal: window.getComputedStyle(producto).display
+    };
+});
+
+function filtroRangoPrecio() {
+    // Obtener los valores de los inputs
+    const precioMinimoValor = parseFloat(precioMinimo.value);
+    const precioMaximoValor = parseFloat(precioMaximo.value);
+
+    // Validación de precios
+    if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
+        alert("El precio mínimo debe ser un número mayor o igual a 0");
+        return
+    }
+    else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
+        alert("El precio máximo debe ser un número mayor al precio mínimo");
+        return
+    }
+
+    // Filtrar productos
+    let productosFiltrados = false
+    const productosVisibles = []
+
+    // Restaurar la visibilidad de todos los productos antes de filtrar nuevamente
+    productosOriginales.forEach(item => {
+        item.producto.style.display = item.displayOriginal; // Restauramos el display original
+    });
+
+    productos.forEach(producto => {
+        const precioProducto = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', ''));
+        const nombreProducto = producto.querySelector('.nombre-producto').textContent;
+        const imagenProducto = producto.querySelector('.imagen-producto').getAttribute('src');
+
+        if (precioProducto >= precioMinimoValor && precioProducto <= precioMaximoValor) {
+            producto.style.visibility = 'visible'; // Mostrar el producto dentro del rango de precio
+            const productoObj = new Producto(imagenProducto, nombreProducto, precioProducto);
+            productosVisibles.push(productoObj)
+            productosFiltrados = true;
+        } else {
+            producto.style.display = 'none' // Ocultar los productos fuera del rango
+        }
+    });
+
+    precioMinimo.value = '';
+    precioMaximo.value = '';
+
+    if (!productosFiltrados) {
+        console.log("No hay productos en el rango especificado");
+    } else { 
+                console.table(productosVisibles);
+    }
+}
+
+// Escuchar el evento de clic en el botón de aplicar filtro
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('aplicar-rango-precio').addEventListener('click', (e) => {
+        e.preventDefault();
+        filtroRangoPrecio();
+    });
+});
+
+
 const toastContainer = document.getElementById('toastContainer');
 
 // Escuchar clics en todos los botones "Agregar al carrito"
@@ -528,75 +597,4 @@ function calcularTotalCarrito(){
     }
 }
 
-
-
-function filtroRangoPrecio() {
-    const precioMinimo = document.getElementById('rango-precio-min');
-    const precioMaximo = document.getElementById('rango-precio-max');
-    const productos = document.querySelectorAll('.producto-unitario');
-
-    const productosOriginales = Array.from(productos).map(producto => {
-        return {
-            producto: producto,
-            displayOriginal: window.getComputedStyle(producto).display
-        };
-    });
-    // Obtener los valores de los inputs
-    const precioMinimoValor = parseFloat(precioMinimo.value);
-    const precioMaximoValor = parseFloat(precioMaximo.value);
-
-    // Validación de precios
-    if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
-        alert("El precio mínimo debe ser un número mayor o igual a 0");
-        return
-    }
-    else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
-        alert("El precio máximo debe ser un número mayor al precio mínimo");
-        return
-    }
-
-    // Filtrar productos
-    let productosFiltrados = false
-    const productosVisibles = []
-
-    // Restaurar la visibilidad de todos los productos antes de filtrar nuevamente
-    productosOriginales.forEach(item => {
-        item.producto.style.display = item.displayOriginal; // Restauramos el display original
-    });
-
-    productos.forEach(producto => {
-        const precioProducto = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', ''));
-        const nombreProducto = producto.querySelector('.nombre-producto').textContent;
-        const imagenProducto = producto.querySelector('.imagen-producto').getAttribute('src');
-
-        if (precioProducto >= precioMinimoValor && precioProducto <= precioMaximoValor) {
-            producto.style.visibility = 'visible'; // Mostrar el producto dentro del rango de precio
-            const productoObj = new Producto(imagenProducto, nombreProducto, precioProducto);
-            productosVisibles.push(productoObj)
-            productosFiltrados = true;
-        } else {
-            producto.style.display = 'none' // Ocultar los productos fuera del rango
-        }
-    });
-
-    precioMinimo.value = '';
-    precioMaximo.value = '';
-
-    if (!productosFiltrados) {
-        console.log("No hay productos en el rango especificado");
-    } else { 
-                console.table(productosVisibles);
-    }
-}
-
 calcularTotalCarrito()
-
-// Escuchar el evento de clic en el botón de aplicar filtro
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('aplicar-rango-precio').addEventListener('click', (e) => {
-        e.preventDefault();
-        filtroRangoPrecio();
-    });
-});
-
-
