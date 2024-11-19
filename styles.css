@@ -652,8 +652,13 @@ iframe{
 }
 
 .producto-unitario button:hover{
-    background-color: #afff02;
+    background-color: #81c92f;
     transition: 0.5s; 
+}
+
+.producto-unitario button:active{
+    background-color: #345f02;
+    transition: 0.1s; 
 }
 
 /*MAIN (CARRITO_PAGO.HTML)*/
@@ -670,6 +675,7 @@ iframe{
     width: 80%;
     margin: 10%;
     padding: 20px;
+    padding-top: 0;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: #262B30 2px 2px 10px;
@@ -701,7 +707,7 @@ iframe{
 
 .carrito-pago{
     width: auto;
-    margin: 40px 7vw 20px 7vw;
+    margin: 40px 4vw 20px 2vw;
     padding: 20px;
     background-color: #FFFFFF;
     grid-area: carrito;
@@ -709,9 +715,16 @@ iframe{
     align-self:flex-start;
 }
 
+.carrito-pago h2{
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #afafaf;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
 .productos-carrito-pago{
     height: auto;
-    /*agrego despues el estilo cuando ya se agreguen automaticamente los procutos al apretar agregar al carrito*/
 }
 
 .productos-carrito-pago h2{
@@ -720,21 +733,70 @@ iframe{
     margin: 0;
 }
 
+.producto-interno-carrito{
+    background-color: #f5f5f5;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #afafaf ;
+}
+
+.eliminar-producto-interno span{
+    color: rgb(216, 0, 0);
+}
+
+.imagen-producto-interno{
+    height: 70px;
+    width: 60px;
+}
+
+.nombre-producto-interno{
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.precio-producto span{
+    font-size: 1rem ;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.eliminar-producto-interno{
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+    border: 0;
+}
+
 .total-pago {
+    margin-top: 15px;
     height: auto;
     width: 100%;
-    padding: 10px;
+    padding: 10px 40px 10px 40px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+}
+
+.total-pago p{
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 .contenedor-datos-usuario{
     height: auto;
     width: auto;
-    margin: 20px 7vw 20px 0;
+    margin: 20px 7vw 20px 5vw;
     padding: 20px;
     grid-area: usuario;
     border-bottom: #262B30 1px solid ;
@@ -764,7 +826,7 @@ iframe{
 .contenedor-datos-tarjeta{
     height: auto;
     width: auto ;
-    margin: 0px 7vw 20px 0;
+    margin: 0px 7vw 20px 5vw;
     padding: 20px;
     grid-area: tarjeta;
 }
