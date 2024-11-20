@@ -1,63 +1,5 @@
 import Producto from "./Producto.js" 
 
-// //creo los objetos dentro de un array para los productos.
-// const productos = [
-//     new Producto ('Mate Imperial Negro', 8500),
-//     new Producto ('Mate Imperial Rosa', 8500),
-//     new Producto ('Mate Seleccion Argentina', 5500),
-//     new Producto ('Mate Camionero Verde', 15000)
-// ]
-
-// // creo el array para el carrito
-// const carrito = [
-//     //esta vacio, pero se pueden ir agregando productos.
-// ]
-
-// //funcion para filtrar en un rango de precios
-// function filtroRangoPrecio (){
-//     alert("Estas por filtrar productos por el precio")
-//     let banderaPrecioMinFiltro = false
-//     let banderaPrecioMaxFiltro = false
-//     let precioMinimo
-//     let precioMaximo
-//     do{
-//         precioMinimo = parseFloat(prompt("Ingresa el precio minimo: "))
-//         if (precioMinimo < 0 || isNaN(precioMinimo)){
-//             alert("El precio minimo debe ser un numero mayor o igual 0")
-//         }else{
-//             banderaPrecioMinFiltro = true
-//         }
-//     }while(!banderaPrecioMinFiltro)
-//     do{
-//         precioMaximo = parseFloat(prompt("Ingresa el precio maximo: "))
-//         if (precioMaximo <= precioMinimo || isNaN(precioMaximo)){
-//             alert("El precio maximo debe ser un numero mayor al precio minimo")
-//         }else{
-//             banderaPrecioMaxFiltro = true
-//         }
-//     }while(!banderaPrecioMaxFiltro)
-//     if (productos.length !== 0){ // Si el arreglo no esta vacio ejecuta el bloque de codigo
-//         console.log("Estos son los productos en el rango de precio: " + "($" + precioMinimo + " - $" + precioMaximo + ")")
-//         let productosFiltrados = false //pongo una bandera para validar si muestra productos o no en ese rango
-//         for(let i = 0; i < productos.length; i++){
-//             if (productos[i].precio <= precioMaximo && productos[i].precio >= precioMinimo){
-//                 console.table(productos[i])
-//                 productosFiltrados = true
-//             }
-//         }
-//         if(!productosFiltrados){// si no esta vacio pero no hay productos dentro del rango imprime este console.log
-//             console.log("No hay productos en el rango especificado")
-//         }
-//     }else{ // si el arreglo esta vacio imprime este console.log
-//         console.log("No hay productos disponibles")
-//     }
-// }
-
-// //funcion para mostrar todos los productos disponibles
-// function mostrarProductos(){
-//     console.log("Estos son los productos: ")
-//     console.table(productos)
-// }
 
 // // funcion para agregar un nuevo producto usando el constructor y entradas del usuario. Esto va a ser solo para el administrador de la pagina en un futuro
 // function crearNuevoProducto(){
@@ -87,59 +29,6 @@ import Producto from "./Producto.js"
 //     productos.push(new Producto (nombreTemp, precioTemp))
 //     console.log("Producto agregado con exito!")
 //     console.table(productos)
-// }
-
-// //funcion para calcular el total del carrito
-// function calcularTotalCarrito(){
-//     let totalCarrito = 0
-//     if(carrito.length !== 0){
-//         for(let producto of carrito){
-//             totalCarrito += producto.precio
-//         }
-//     }
-//     console.log("Total: " + totalCarrito.toFixed(2)) // para que tenga 2 decimales
-// }
-
-// //funcion para agregar un producto al carrito por ahora con un indice, luego va a ser con el boton agregar al carrito
-// function agregarProductoCarrito() {
-//     alert("Estas por agregar un nuevo producto al carrito")
-//     mostrarProductos()
-//     let indiceTemp = parseInt(prompt("Ingresa el indice del producto que deseas agregar: "))
-//     if (indiceTemp >= 0 && indiceTemp < productos.length) {
-//         carrito.push(productos[indiceTemp])
-//         console.log("Producto agregado al carrito: ")
-//         console.table(carrito)
-//     } else {
-//         console.log("Indice invalido, no se pudo agregar el producto al carrito.")
-//     }
-// }
-
-// //funcion para quitar un producto del carrito
-// function quitarProductoCarrito(){
-//     if(carrito.length !== 0){
-//         alert("Estas por sacar un producto de tu carrito")
-//         console.table(carrito)
-//         let indiceTemp = parseInt(prompt("Ingresa el indice del producto que deseas quitar: "))
-//         if (indiceTemp >= 0 && indiceTemp < carrito.length) {
-//             carrito.splice(indiceTemp, 1)
-//             console.log("Producto quitado del carrito")
-//         } else {
-//             console.log("Indice invalido, no se pudo quitar el producto del carrito")
-//         }
-//     }else{
-//         alert("El carrito esta vacio")
-//     }   
-// }
-
-// //funcion para mostrar todos los productos del carrito
-// function mostrarCarrito(){
-//     console.log("---Tu Carrito---")
-//     if(carrito.length !== 0){
-//         console.table(carrito)
-//     }else{
-//         console.log("No hay productos en tu carrito")
-//     }
-//     calcularTotalCarrito()
 // }
 
 // //funcion para cambiar el nombre de un producto
@@ -195,191 +84,29 @@ import Producto from "./Producto.js"
 //     }   
 // }
 
-// // constante con las opciones del menu para que se muestre en el prompt del do-while
-// const opciones = "------------------------MENU DE OPCIONES------------------------\n 1-Filtrar producto por precio\n 2-Crear un producto nuevo\n 3-Agregar un producto al carrito\n 4-Ver tu carrito\n 5-Quitar producto del carrito\n 6-Eliminar un producto\n 7-Ver productos\n 8-Modificar el nombre de un producto\n 9-Modificar el precio de un producto\n 10-Salir\n"
-// let booleanoWhile = true
-// // Este do-while con su switch es temporal, pero es para mantener el flujo del programa para una correcta visualizacion desde la consola para esta entrega
-// do{
-//     let opcionMenu = parseInt(prompt(opciones + "Selecciona una opcion e ingresa el numero de la misma: "))
-//     switch(opcionMenu){
-//         case 1:
-//             filtroRangoPrecio()
-//             break
-//         case 2:
-//             crearNuevoProducto()
-//             break
-//         case 3:
-//             agregarProductoCarrito()
-//             break
-//         case 4:
-//             mostrarCarrito()
-//             break
-//         case 5:
-//             quitarProductoCarrito()
-//             break
-//         case 6:
-//             eliminarProducto()
-//             break
-//         case 7:
-//             mostrarProductos()
-//             break
-//         case 8:
-//             mostrarProductos()
-//             alert("Estas por actualizar el nombre de un producto")
-//             let indiceProdModNombre = parseInt(prompt("Coloca el indice del producto a modificar su nombre: "))
-//             console.log("Producto seleccionado: " + indiceProdModNombre);
-//             if(indiceProdModNombre < 0 || indiceProdModNombre > productos.length-1 || isNaN(indiceProdModNombre)){
-//                 alert("El indice que proporcionaste no es valido")
-//             }else{
-//                 cambiarNombreProducto(productos[indiceProdModNombre])
-//             }
-//             break
-//         case 9:
-//             mostrarProductos()
-//             alert("Estas por actualizar el precio de un producto")
-//             let indiceProdModPrecio = parseInt(prompt("Coloca el indice del producto a modificar su precio: "))
-//             console.log("Producto seleccionado: " + indiceProdModPrecio);
-//             if(indiceProdModPrecio < 0 || indiceProdModPrecio > productos.length-1 || isNaN(indiceProdModPrecio)){
-//                 alert("El indice que proporcionaste no es valido")
-//             }else{
-//                 cambiarPrecioProducto(productos[indiceProdModPrecio])
-//             }
-//             break
-//         case 10:
-//             booleanoWhile = false
-//             console.log("Saliendo...");
-//             break
-//         default:
-//             console.log("Opcion no valida, ingresa otra")
-//             break
-//     }
-// }while(booleanoWhile)
-
-// Entrega 4
-
-// const productosCarrito = document.getElementsByClassName('productos-carrito-pago')
-// const botonAgregarCarrito = document.getElementsByClassName('boton-productos')
-// const imagenProducto = document.getElementsByClassName('imagen-producto')
-// const nombreProducto = document.getElementsByClassName('nombre-producto')
-// const precioProducto = document.getElementsByClassName('precio-producto')
-
-// botonAgregarCarrito.addEventListener('click', ()=>{
-//     console.log("Hola")
-//     agregarProductoCarrito()
-// })
-
-// function agregarProductoCarrito(){
-//     const productoCarrito = document.createElement('div')
-//     productoCarrito.classList.add('producto-interno-carrito')
-
-//     const imagenProductoNuevo = imagenProducto
-//     imagenProductoNuevo = document.createElement('img')
-//     imagenProductoNuevo.classList.add('imagen-producto-interno')
-    
-//     const nombreProductoNuevo = nombreProducto
-//     nombreProductoNuevo = document.createElement('h3')
-//     nombreProductoNuevo.classList.add('nombre-producto-interno')
-
-//     const precioProductoNuevo = precioProducto
-//     precioProductoNuevo = document.createElement('p')
-//     precioProductoNuevo.classList.add('precio-producto-interno')
-
-//     const eliminarProductoNuevo = document.createElement('button')
-//     eliminarProductoNuevo.classList.add('eliminar-producto-interno')
-
-//     eliminarProductoNuevo.addEventListener('click', () =>{
-//         productosCarrito.removeChild(productoCarrito)
-//     }) 
-
-//     productoCarrito.appendChild(imagenProducto)
-//     productoCarrito.appendChild(nombreProductoNuevo)
-//     productoCarrito.appendChild(precioProductoNuevo)
-//     productoCarrito.appendChild(eliminarProductoNuevo)
-//     productosCarrito.appendChild(productoCarrito)
-// }
-
-// // Selecciona todos los botones "Agregar al carrito"
-// const botonesAgregarCarrito = document.querySelectorAll('.boton-productos');
-// console.log(botonesAgregarCarrito);
-// // Selecciona el contenedor donde se agregarán los productos en el carrito
-// const productosCarrito = document.querySelector('.productos-carrito-pago');
-
-// // Asignar eventos de clic a cada botón
-// botonesAgregarCarrito.forEach((boton) => {
-//     boton.addEventListener('click', () => {
-//         // Encuentra el contenedor del producto relacionado al botón
-//         const producto = boton.closest('.producto-unitario');
-//         console.log("hola")
-//         if (!producto) {
-//             console.error('No se encontró un contenedor .producto-unitario para el botón:', this);
-//             return;
-//         }
-//         // Agrega el producto al carrito
-//         agregarProductoCarrito(producto);
-//     });
-// });
-
-// // Función para agregar un producto al carrito
-// function agregarProductoCarrito(producto) {
-//     // Crear contenedor del producto en el carrito
-//     const productoCarrito = document.createElement('div');
-//     productoCarrito.classList.add('producto-interno-carrito');
-
-//     // Extraer y clonar datos del producto
-//     const imagenProductoNuevo = document.createElement('img');
-//     imagenProductoNuevo.classList.add('imagen-producto-interno');
-//     imagenProductoNuevo.src = producto.querySelector('.imagen-producto').src;
-
-//     const nombreProductoNuevo = document.createElement('p');
-//     nombreProductoNuevo.classList.add('nombre-producto-interno');
-//     nombreProductoNuevo.textContent = producto.querySelector('.nombre-producto').textContent;
-
-//     const precioProductoNuevo = document.createElement('h3');
-//     precioProductoNuevo.classList.add('precio-producto-interno');
-//     precioProductoNuevo.textContent = producto.querySelector('.precio-producto').textContent;
-
-//     const eliminarProductoNuevo = document.createElement('button');
-//     eliminarProductoNuevo.classList.add('eliminar-producto-interno');
-//     eliminarProductoNuevo.textContent = 'Eliminar';
-
-//     // Evento para eliminar el producto del carrito
-//     eliminarProductoNuevo.addEventListener('click', () => {
-//         productoCarrito.remove();
-//     });
-
-//     // Agregar elementos al contenedor del producto en el carrito
-//     productoCarrito.appendChild(imagenProductoNuevo);
-//     productoCarrito.appendChild(nombreProductoNuevo);
-//     productoCarrito.appendChild(precioProductoNuevo);
-//     productoCarrito.appendChild(eliminarProductoNuevo);
-
-//     // Agregar el producto al contenedor del carrito
-//     productosCarrito.appendChild(productoCarrito);
-// }
-
-const precioMinimo = document.getElementById('rango-precio-min');
-const precioMaximo = document.getElementById('rango-precio-max');
-const productos = document.querySelectorAll('.producto-unitario');
+const precioMinimo = document.getElementById('rango-precio-min')
+const precioMaximo = document.getElementById('rango-precio-max')
+const productos = document.querySelectorAll('.producto-unitario')
 
 const productosOriginales = Array.from(productos).map(producto => {
     return {
         producto: producto,
         displayOriginal: window.getComputedStyle(producto).display
-    };
-});
+    }
+})
 
 function filtroRangoPrecio() {
     // Obtener los valores de los inputs
-    const precioMinimoValor = parseFloat(precioMinimo.value);
-    const precioMaximoValor = parseFloat(precioMaximo.value);
+    const precioMinimoValor = parseFloat(precioMinimo.value)
+    const precioMaximoValor = parseFloat(precioMaximo.value)
 
     // Validación de precios
     if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
-        alert("El precio mínimo debe ser un número mayor o igual a 0");
+        alert("El precio mínimo debe ser un número mayor o igual a 0")
         return
     }
     else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
-        alert("El precio máximo debe ser un número mayor al precio mínimo");
+        alert("El precio máximo debe ser un número mayor al precio mínimo")
         return
     }
 
@@ -389,58 +116,58 @@ function filtroRangoPrecio() {
 
     // Restaurar la visibilidad de todos los productos antes de filtrar nuevamente
     productosOriginales.forEach(item => {
-        item.producto.style.display = item.displayOriginal; // Restauramos el display original
-    });
+        item.producto.style.display = item.displayOriginal // Restauramos el display original
+    })
 
     productos.forEach(producto => {
-        const precioProducto = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', ''));
-        const nombreProducto = producto.querySelector('.nombre-producto').textContent;
-        const imagenProducto = producto.querySelector('.imagen-producto').getAttribute('src');
+        const precioProducto = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', ''))
+        const nombreProducto = producto.querySelector('.nombre-producto').textContent
+        const imagenProducto = producto.querySelector('.imagen-producto').getAttribute('src')
 
         if (precioProducto >= precioMinimoValor && precioProducto <= precioMaximoValor) {
-            producto.style.visibility = 'visible'; // Mostrar el producto dentro del rango de precio
+            producto.style.visibility = 'visible' // Mostrar el producto dentro del rango de precio
             const productoObj = new Producto(imagenProducto, nombreProducto, precioProducto);
             productosVisibles.push(productoObj)
-            productosFiltrados = true;
+            productosFiltrados = true
         } else {
             producto.style.display = 'none' // Ocultar los productos fuera del rango
         }
     });
 
-    precioMinimo.value = '';
-    precioMaximo.value = '';
+    precioMinimo.value = ''
+    precioMaximo.value = ''
 
     if (!productosFiltrados) {
-        console.log("No hay productos en el rango especificado");
+        console.log("No hay productos en el rango especificado")
     } else { 
-                console.table(productosVisibles);
+                console.table(productosVisibles)
     }
 }
 
 // Escuchar el evento de clic en el botón de aplicar filtro
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('aplicar-rango-precio').addEventListener('click', (e) => {
-        e.preventDefault();
-        filtroRangoPrecio();
-    });
-});
+        e.preventDefault()
+        filtroRangoPrecio()
+    })
+})
 
 
-const toastContainer = document.getElementById('toastContainer');
+const toastContainer = document.getElementById('toastContainer')
 
 // Escuchar clics en todos los botones "Agregar al carrito"
 document.addEventListener('click', (event) => {
     if (event.target.classList.contains('boton-productos')) {
         // Encuentra el contenedor del producto correspondiente
-        const producto = event.target.closest('.producto-unitario');
+        const producto = event.target.closest('.producto-unitario')
 
         // Obtiene los datos del producto
-        const nombreProducto = producto.querySelector('.nombre-producto').textContent;
-        const precioProducto = producto.querySelector('.precio-producto').textContent;
-        const imagenProducto = producto.querySelector('.imagen-producto').src;
+        const nombreProducto = producto.querySelector('.nombre-producto').textContent
+        const precioProducto = producto.querySelector('.precio-producto').textContent
+        const imagenProducto = producto.querySelector('.imagen-producto').src
 
         // Generar un ID único para el toast
-        const toastId = `toast-${Date.now()}`;
+        const toastId = `toast-${Date.now()}`
 
         // Crear el HTML del toast dinámicamente
         const toastHTML = `
@@ -455,56 +182,56 @@ document.addEventListener('click', (event) => {
                     ${nombreProducto} ha sido agregado al carrito por ${precioProducto}.
                 </div>
             </div>
-        `;
+        `
 
         // Añadir el nuevo toast al contenedor
-        toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+        toastContainer.insertAdjacentHTML('beforeend', toastHTML)
 
         // Inicializar el toast (Bootstrap necesita esto para hacerlo interactivo)
-        const toastElement = document.getElementById(toastId);
+        const toastElement = document.getElementById(toastId)
         const toastInstance = new bootstrap.Toast(toastElement,{
             delay: 3000
-        });
+        })
 
         // Mostrar el toast
-        toastInstance.show();
+        toastInstance.show()
     }
 });
 
 // Selecciona todos los botones "Agregar al carrito"
-const botonesAgregarCarrito = document.querySelectorAll('.boton-productos');
-console.log(botonesAgregarCarrito);
+const botonesAgregarCarrito = document.querySelectorAll('.boton-productos')
+console.log(botonesAgregarCarrito)
 
 // Asignar eventos de clic a cada botón
 botonesAgregarCarrito.forEach((boton) => {
     boton.addEventListener('click', () => {
         // Encuentra el contenedor del producto relacionado al botón
-        const producto = boton.closest('.producto-unitario');
+        const producto = boton.closest('.producto-unitario')
 
         const imagen = producto.querySelector('.imagen-producto').src
         const nombre = producto.querySelector('.nombre-producto').textContent
-        const precio = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', '').trim()); // Eliminar el símbolo $ y convertir a número
+        const precio = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', '').trim()) // Eliminar el símbolo $ y convertir a número
 
         // Crear un objeto con los detalles del producto
         const productoNuevo = new Producto (imagen, nombre, precio) 
 
 
         // Obtener el carrito del localStorage, o un array vacío si no existe
-        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
         // Agregar el producto al carrito
         carrito.push(productoNuevo)
 
         // Guardar el carrito actualizado en el localStorage
-        localStorage.setItem('carrito', JSON.stringify(carrito));
+        localStorage.setItem('carrito', JSON.stringify(carrito))
 
-        console.log("Producto agregado al carrito", productoNuevo);
-    });
-});
+        console.log("Producto agregado al carrito", productoNuevo)
+    })
+})
 
 
 // Recuperar el carrito desde localStorage
-const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
 // Seleccionar el contenedor donde se agregarán los productos del carrito
 const productosCarrito = document.querySelector('.productos-carrito-pago')
@@ -514,87 +241,423 @@ const precioCarrito = document.getElementById('precio-carrito-total')
 if (carrito.length > 0) {
     carrito.forEach((producto) => {
         // Crear un contenedor para cada producto en el carrito
-        const productoCarrito = document.createElement('div');
-        productoCarrito.classList.add('producto-interno-carrito');
+        const productoCarrito = document.createElement('div')
+        productoCarrito.classList.add('producto-interno-carrito')
 
         // Crear y agregar la imagen del producto
-        const imagenProducto = document.createElement('img');
-        imagenProducto.classList.add('imagen-producto-interno');
-        imagenProducto.src = producto.imagen;
-        productoCarrito.appendChild(imagenProducto);
+        const imagenProducto = document.createElement('img')
+        imagenProducto.classList.add('imagen-producto-interno')
+        imagenProducto.src = producto.imagen
+        productoCarrito.appendChild(imagenProducto)
 
         // Crear y agregar el nombre del producto
-        const nombreProducto = document.createElement('p');
-        nombreProducto.classList.add('nombre-producto-interno');
-        nombreProducto.textContent = producto.nombre;
-        productoCarrito.appendChild(nombreProducto);
+        const nombreProducto = document.createElement('p')
+        nombreProducto.classList.add('nombre-producto-interno')
+        nombreProducto.textContent = producto.nombre
+        productoCarrito.appendChild(nombreProducto)
 
         // Crear y agregar el precio del producto
-        const precioProducto = document.createElement('h3');
-        precioProducto.classList.add('precio-producto');
+        const precioProducto = document.createElement('h3')
+        precioProducto.classList.add('precio-producto')
 
         // Crear el span para el símbolo del precio
-        const simboloPrecio = document.createElement('span');
-        simboloPrecio.classList.add('simbolo-precio');
-        simboloPrecio.textContent = '$';  // Agregar el símbolo de precio
+        const simboloPrecio = document.createElement('span')
+        simboloPrecio.classList.add('simbolo-precio')
+        simboloPrecio.textContent = '$'  // Agregar el símbolo de precio
 
         // Crear el span para el valor del precio
-        const valorPrecio = document.createElement('span');
-        valorPrecio.classList.add('valor-precio');
-        valorPrecio.textContent = parseInt(producto.precio);  // Agregar el valor del precio
+        const valorPrecio = document.createElement('span')
+        valorPrecio.classList.add('valor-precio')
+        valorPrecio.textContent = parseInt(producto.precio)  // Agregar el valor del precio
 
         // Agregar los spans al contenedor del precio
-        precioProducto.appendChild(simboloPrecio);
-        precioProducto.appendChild(valorPrecio);
+        precioProducto.appendChild(simboloPrecio)
+        precioProducto.appendChild(valorPrecio)
 
         // Agregar el contenedor del precio al contenedor del producto
-        productoCarrito.appendChild(precioProducto);
+        productoCarrito.appendChild(precioProducto)
 
 
         // Crear el botón de eliminar con el icono 'delete' dentro
-        const eliminarProducto = document.createElement('button');
-        eliminarProducto.classList.add('eliminar-producto-interno');
+        const eliminarProducto = document.createElement('button')
+        eliminarProducto.classList.add('eliminar-producto-interno')
         
         // Crear el span con la clase para el icono
-        const spanIcon = document.createElement('span');
-        spanIcon.classList.add('material-symbols-outlined');
-        spanIcon.textContent = 'delete'; // Esto pone el ícono 'delete' dentro del span
+        const spanIcon = document.createElement('span')
+        spanIcon.classList.add('material-symbols-outlined')
+        spanIcon.textContent = 'delete' // Esto pone el ícono 'delete' dentro del span
 
         // Agregar el span al botón
-        eliminarProducto.appendChild(spanIcon);
+        eliminarProducto.appendChild(spanIcon)
 
         // Evento para eliminar el producto del carrito
         eliminarProducto.addEventListener('click', () => {
             // Eliminar el producto del carrito en localStorage
-            const index = carrito.indexOf(producto);
+            const index = carrito.indexOf(producto)
             if (index > -1) {
-                carrito.splice(index, 1);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                productoCarrito.remove();
-                console.log("Producto eliminado del carrito");
+                carrito.splice(index, 1)
+                localStorage.setItem('carrito', JSON.stringify(carrito))
+                productoCarrito.remove()
+                console.log("Producto eliminado del carrito")
                 calcularTotalCarrito()
             }
         });
 
         // Agregar el botón de eliminación al contenedor del producto
-        productoCarrito.appendChild(eliminarProducto);
+        productoCarrito.appendChild(eliminarProducto)
 
         // Agregar el producto al contenedor del carrito
-        productosCarrito.appendChild(productoCarrito);
+        productosCarrito.appendChild(productoCarrito)
     });
 }
 
 
 function calcularTotalCarrito(){
-    let totalCarrito = 0;
+    let totalCarrito = 0
     if (carrito.length !== 0) {
         for (let producto of carrito) {
             totalCarrito += parseFloat(producto.precio)  // Sumar los precios de los productos en el carrito
         }
-        precioCarrito.textContent = "$" + totalCarrito;  // Mostrar el total con 2 decimales
+        precioCarrito.textContent = "$" + totalCarrito // Mostrar el total con 2 decimales
     } else {
-        precioCarrito.textContent = "$0";  // Si no hay productos, mostrar $0
+        precioCarrito.textContent = "$0"  // Si no hay productos, mostrar $0
     }
 }
 
 calcularTotalCarrito()
+//funcion para mostrar el error en un input si hay datos invalidos
+function mostrarError(input, mensaje) {
+    let errorMensaje = input.nextElementSibling; // Busca el siguiente elemento donde mostrar el error
+
+    if (!errorMensaje || !errorMensaje.classList.contains('error-text')) {
+        // Si no existe el mensaje de error, lo creamos
+        errorMensaje = document.createElement('div');
+        errorMensaje.className = 'error-text';
+        input.parentNode.insertBefore(errorMensaje, input.nextSibling);
+    }
+
+    errorMensaje.textContent = mensaje;
+}
+
+// funcion para dejar de mostrar el mensaje de error
+function ocultarError(input) {
+    const errorMensaje = input.nextElementSibling;
+    if (errorMensaje && errorMensaje.classList.contains('error-text')) {
+        errorMensaje.remove(); // Elimina el mensaje de error si existe
+    }
+}
+
+// tomamos los input del form numero de datos personales
+const nombreFormulario = document.getElementById('nombre-form')
+const emailFormulario = document.getElementById('email-form')
+const telefonoFormulario = document.getElementById('telefono-form')
+const dniFormulario = document.getElementById('dni-form')
+const botonEnviar = document.getElementById('boton-comprar')
+
+// tomamos los input del form de datos de la tarjeta
+const formaPagoFormulario = document.getElementById('forma-de-pago')
+const cuotasFormulario = document.getElementById('cuotas-form')
+const numTarjetaFormulario = document.getElementById('nro-tarjeta-form')
+const nombreTitularFormulario = document.getElementById('nombre-tarjeta-form')
+const fechaVencimientoFormulario = document.getElementById('fecha-ven-form')
+const cvcTarjetaFormulario = document.getElementById('cvc')
+
+// funcion para evitar que agregue caracteres de mas de lo permitido
+const maxLongitudDNI = 8
+const maxLongitudTelefono = 11
+const maxLongitudTarjeta = 19
+const maxLongitudCVC = 3
+dniFormulario.addEventListener('input', () => {
+        let valor = dniFormulario.value
+        // evita que se ingresen más de los 8 caracteres
+        if (valor.length > maxLongitudDNI) {
+            dniFormulario.value = valor.substring(0, maxLongitudDNI)
+        }
+    })
+
+telefonoFormulario.addEventListener('input', () => {
+        let valor = telefonoFormulario.value
+        // evita que se ingresen más de los 10 caracteres
+        if (valor.length > maxLongitudTelefono) {
+            telefonoFormulario.value = valor.substring(0, maxLongitudTelefono)
+        }
+})
+
+numTarjetaFormulario.addEventListener('input', () => {
+    let valor = numTarjetaFormulario.value;
+    // elimina todo lo que no sea un numero, negando poner letras por ejemplo
+    valor = valor.replace(/\D/g, "");
+    // pone un guion cada 4 numeros
+    if (valor.length > 4) {
+        valor = valor.replace(/(\d{4})(?=\d)/g, "$1-");
+    }
+    // le pongo el limite contando los guines
+    if (valor.length > maxLongitudTarjeta) {
+        valor = valor.substring(0, maxLongitudTarjeta);
+    }
+    numTarjetaFormulario.value = valor;
+})
+
+cvcTarjetaFormulario.addEventListener('input', () => {
+    let valor = cvcTarjetaFormulario.value
+    // evita que se ingresen más de los 10 caracteres
+    if (valor.length > maxLongitudCVC) {
+        cvcTarjetaFormulario.value = valor.substring(0, maxLongitudCVC)
+    }
+})
+
+// funciones para verificar que un input cumpla con los requisitos
+
+// funcion para verificar si no esta vacio el input
+function inputVacio(texto) {
+    if (texto.trim() === "") { // le borro los espacios al principio y al final y verifico si esta vacio
+        return true
+    } else {
+        return false 
+    }
+}
+
+// funcion para verificar si contiene unicamente letras
+function inputLetras(texto) {
+    const patron = /^[a-zA-Z\s]+$/ // patron regex para comprabar esto con el test
+    return patron.test(texto)
+}
+
+//funcion para verificar si es un mail valido
+function inputEmail(texto){
+    const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // patron regex para comprabar esto con el test 
+    return patron.test(texto)
+}
+
+// funcion para verificar si es un numero valido
+function inputTelefono(texto){
+    if(texto.length < 10 || texto.length > 11){ // sin el + 54
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+// funcion para verificar si el DNI es valido
+function inputDni(texto){
+    if(texto.length != 8 ){ //si no es igual a 8 la longitud
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+// funcion para verificar si selecciono una opcion en forma de pago y cuotas
+function selectOpciones(opcionSeleccionada){
+    if(opcionSeleccionada === "0" ){ //si es = 0 es que no selecciono
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+// funcion para verificar si el numero de tarjeta es valido
+function inputNumTarjeta(texto){
+    if(texto.length != 19 ){ //si no es igual a 19 la longitud
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+// funcion para verificar si la fecha de vencimiento es valida
+function inputFecha(fecha){
+    const hoy = new Date(); 
+    const fechaVencimiento = new Date(fecha); 
+    if(fechaVencimiento < hoy){
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+// funcion para verificar si el cvc es valido
+function inputCVC(texto){
+    if(texto.length != 3 ){ //si no es igual a 19 la longitud
+        return false
+    }
+    else{
+        return true
+    }
+}
+
+botonEnviar.addEventListener('click', () => {
+    
+    // valida los datos del cliente
+    let formularioValido = true
+
+    // valida el nombre
+    const nombre = nombreFormulario.value
+    if(!inputVacio(nombre)){
+        if (!inputLetras(nombre)) {
+            nombreFormulario.classList.add('input-error'); // Agrega una clase de error al input
+            mostrarError(nombreFormulario, "El nombre solo debe contener letras.")
+            formularioValido = false
+        } else {
+            nombreFormulario.classList.remove('input-error'); // Remueve la clase de error si es válido
+            ocultarError(nombreFormulario)
+        }
+    }else{
+        nombreFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(nombreFormulario, "El nombre no puede estar vacio.")
+        formularioValido = false
+    }
+    
+    //valida el email
+    const email = emailFormulario.value
+    if(!inputVacio(email)){
+        if(!inputEmail(email)){
+            emailFormulario.classList.add('input-error'); // Agrega una clase de error al input
+            mostrarError(emailFormulario, "El email proporcionado no es valido, verificalo.")
+            formularioValido = false
+        } else {
+            emailFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(emailFormulario)
+        }
+    }else{
+        emailFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(emailFormulario, "El email no puede estar vacio.")
+        formularioValido = false
+    }
+    
+    // valida el telefono
+    const telefono = telefonoFormulario.value
+    if(!inputVacio(telefono)){
+        if(!inputTelefono(telefono)){
+            telefonoFormulario.classList.add('input-error') // Agrega una clase de error al input
+            mostrarError(telefonoFormulario, "El numero de telefono debe contener 10/11 caracteres en total")
+            formularioValido = false
+        } else {
+            telefonoFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(telefonoFormulario)
+        }
+    }else{
+        telefonoFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(telefonoFormulario, "El numero de telefono no puede estar vacio.")
+        formularioValido = false
+    }
+    
+    //valida el dni
+    const dni = dniFormulario.value
+    if(!inputVacio(dni)){
+        if(!inputDni(dni)){
+            dniFormulario.classList.add('input-error') // Agrega una clase de error al input
+            mostrarError(dniFormulario, "El DNI debe contener 8 numeros.")
+            formularioValido = false
+        } else {
+            dniFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(dniFormulario)
+        }
+    }else{
+        dniFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(dniFormulario, "El DNI no puede estar vacio.")
+        formularioValido = false
+    }
+
+    //valida los datos de la tarjeta
+    // valida la forma de pago
+    const formaPago = formaPagoFormulario.value
+    if (!selectOpciones(formaPago)) {
+        formaPagoFormulario.classList.add('input-error') // Agrega una clase de error al select
+        mostrarError(formaPagoFormulario, "Elegi una opcion.")
+        formularioValido = false
+    } else {
+        formaPagoFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+        ocultarError(formaPagoFormulario);
+    }
+
+        // valida las cuotas
+        const cuotas = cuotasFormulario.value
+        if (!selectOpciones(cuotas)) {
+            cuotasFormulario.classList.add('input-error') // Agrega una clase de error al select
+            mostrarError(cuotasFormulario, "Elegi una opcion.")
+            formularioValido = false
+        } else {
+            cuotasFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(cuotasFormulario);
+        }
+
+    // valida el num de tarjeta
+    const numTarj = numTarjetaFormulario.value
+    if(!inputVacio(numTarj)){
+        if(!inputNumTarjeta(numTarj)){
+            numTarjetaFormulario.classList.add('input-error') // Agrega una clase de error al input
+            mostrarError(numTarjetaFormulario, "El numero de tarjeta debe contener 16 numeros")
+            formularioValido = false
+        } else {
+            numTarjetaFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(numTarjetaFormulario)
+        }
+    }else{
+        numTarjetaFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(numTarjetaFormulario, "El numero de tarjeta no puede estar vacio.")
+        formularioValido = false
+    }
+
+    // valida el nombre del titular
+    const nombreTitular = nombreTitularFormulario.value
+    if(!inputVacio(nombreTitular)){
+        if (!inputLetras(nombreTitular)) {
+            nombreTitularFormulario.classList.add('input-error'); // Agrega una clase de error al input
+            mostrarError(nombreTitularFormulario, "El nombre solo debe contener letras.")
+            formularioValido = false
+        } else {
+            nombreTitularFormulario.classList.remove('input-error'); // Remueve la clase de error si es válido
+            ocultarError(nombreTitularFormulario)
+        }
+    }else{
+        nombreTitularFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(nombreTitularFormulario, "El nombre no puede estar vacio.")
+        formularioValido = false
+    }
+
+    // valida la fecha de vencimiento a ver si no esta vencida
+    const fechaVenc = fechaVencimientoFormulario.value
+    if(!inputVacio(fechaVenc)){
+        if (!inputFecha(fechaVenc)) {
+            fechaVencimientoFormulario.classList.add('input-error') // Agrega una clase de error al input
+            mostrarError(fechaVencimientoFormulario, "La tarjeta esta vencida.")
+            formularioValido = false
+        } else {
+            fechaVencimientoFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(fechaVencimientoFormulario)
+        }
+    }else{
+        fechaVencimientoFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(fechaVencimientoFormulario, "La fecha de vencimiento no puede estar vacia.")
+        formularioValido = false
+    }
+
+    // valida el cvc de la tarjeta
+    const cvc = cvcTarjetaFormulario.value
+    if(!inputVacio(cvc)){
+        if (!inputCVC(cvc)) {
+            cvcTarjetaFormulario.classList.add('input-error')// Agrega una clase de error al input
+            mostrarError(cvcTarjetaFormulario, "El CVC debe contener 3 numeros.")
+            formularioValido = false
+        } else {
+            cvcTarjetaFormulario.classList.remove('input-error') // Remueve la clase de error si es válido
+            ocultarError(cvcTarjetaFormulario)
+        }
+    }else{
+        cvcTarjetaFormulario.classList.add('input-error'); // Agrega una clase de error al input
+        mostrarError(cvcTarjetaFormulario, "El CVC no puede estar vacio.")
+        formularioValido = false
+    }
+
+    if (formularioValido) {
+        // si no hay datos erroneos redirecciona a este html
+        window.location.href = 'pago_realizado.html'
+    }
+})
+

@@ -665,7 +665,7 @@ iframe{
 .contenedor-pago{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10% 1fr 1fr 10%; 
+    grid-template-rows: auto; 
     grid-template-areas:
     "titulo titulo"
     "carrito usuario"
@@ -693,6 +693,7 @@ iframe{
     align-items: flex-end;
     justify-content: center;
     font-size:1.5rem;
+    margin-top: 50px;
 }
 
 .titulo-compra hr{
@@ -908,6 +909,23 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/*diseño para errores de input en entradas invalidas de datos*/
+.input-error {
+    border: 2px solid #f00014 !important; 
+}
+
+.input-error:focus{
+    border: 0 !important;
+}
+
+.error-text {
+    color: #e63946;
+    font-size: 0.8rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
 
 /*MAIN (PREGFRECUENTES.HTML)*/
 .titulo-preguntas{
