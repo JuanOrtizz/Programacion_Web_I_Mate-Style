@@ -6,7 +6,7 @@ class Producto{ // creo la clase producto, para manejar de forma mas modular el 
     }
 
     imprimirInformacion(){
-        return "Nombre del producto: " + this.nombre + ", Precio del producto: $" +this.precio
+        return "Nombre del producto: " + this.nombre + ", Precio del producto: $" +this.precio + "Imagen: " + this.imagen
     }
 
     // actua como un set de nombre

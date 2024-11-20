@@ -103,13 +103,14 @@
                             </select>
                         <label for="cuotas-form">Cuotas</label> <!--Label con un select para seleccionar las cuotas, si es debito, no se podra seleccionar cuotas. Quedara fija en 1, es requerido.-->
                             <select name="" id="cuotas-form" required>
+                                <option value="0" disabled selected hidden>Selecciona las cuotas</option>
                                 <option value="1">1</option>
                                 <option value="2">3</option>
                                 <option value="3">6</option>
                                 <option value="4">12</option>
                             </select>
                         <label for="nro-tarjeta-form">Número de la tarjeta</label> <!--Label e input para colocar el numero de tarjeta del cliente-->
-                            <input type="number" id="nro-tarjeta-form" placeholder="9999-9999-9999-9999" required>
+                            <input type="text" id="nro-tarjeta-form" placeholder="9999-9999-9999-9999" required>
                         <label for="nombre-tarjeta-form">Nombre Titular</label> <!--Label e input para colocar el nombre del titular de la tarjeta del cliente-->
                             <input type="text" id="nombre-tarjeta-form" placeholder="Insertá el nombre aquí" required>
                         <label for="fecha-ven-form">Fecha de Vencimiento</label> <!--Label e input para seleccionar mes y año de fecha de vencimiento de la tarjeta-->
@@ -119,10 +120,8 @@
                     </form>
                 </div>
                 <div class="contenedor-boton-formulario">
-                    <button type="submit">
-                        <a href="pago_realizado.html">
+                    <button type="submit" id="boton-comprar">
                             Comprar
-                        </a>
                     </button><!--Boton de tipo submit para enviar el formulario a la direccion necesaria-->
                 </div><!--El boton comprar, una vez se envia el formulario con JS vamos a hacer que nos redireccione a la pagina pago_realizado.html-->
         </section>
