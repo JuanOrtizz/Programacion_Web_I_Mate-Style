@@ -83,6 +83,31 @@ import Producto from "./Producto.js"
 //         alert("No hay productos")
 //     }   
 // }
+// funcion para modificar la informacion del pago
+let mdpPagoRealizado = sessionStorage.getItem('mdp')
+const emailPagoRealizado = sessionStorage.getItem('email')
+const totalPagoRealizado = sessionStorage.getItem('totalPago')
+
+const emailElemento = document.getElementById('email-pago-realizado')
+const mdpElemento = document.getElementById('mdp-pago-realizado')
+const totalElemento = document.getElementById('total-pago-realizado')
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const contenedorPagoRealizado = document.querySelector('.contenedor-compra-realizada')
+    console.log('contenedorPagoRealizado:', contenedorPagoRealizado)
+
+    emailElemento.textContent = emailPagoRealizado
+
+    if(mdpPagoRealizado === 2){
+        mdpPagoRealizado = "Debito"
+    }else{
+        mdpPagoRealizado = "Credito"
+    }
+    mdpElemento.textContent = mdpPagoRealizado
+
+    totalElemento.textContent = totalPagoRealizado
+})
 
 const precioMinimo = document.getElementById('rango-precio-min')
 const precioMaximo = document.getElementById('rango-precio-max')
@@ -151,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
         filtroRangoPrecio()
     })
 })
-
 
 const toastContainer = document.getElementById('toastContainer')
 
@@ -276,7 +300,6 @@ if (carrito.length > 0) {
 
         // Agregar el contenedor del precio al contenedor del producto
         productoCarrito.appendChild(precioProducto)
-
 
         // Crear el botón de eliminar con el icono 'delete' dentro
         const eliminarProducto = document.createElement('button')
@@ -656,8 +679,13 @@ botonEnviar.addEventListener('click', () => {
     }
 
     if (formularioValido) {
+        // guarda los datos en el sessionStorage
+        sessionStorage.setItem('email', emailFormulario.value);
+        sessionStorage.setItem('mdp', formaPagoFormulario.value);
+        sessionStorage.setItem('totalPago', precioCarrito.textContent);
         // si no hay datos erroneos redirecciona a este html
         window.location.href = 'pago_realizado.html'
     }
 })
+
 
