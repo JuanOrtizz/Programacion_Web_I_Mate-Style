@@ -93,17 +93,21 @@ const totalElemento = document.getElementById('total-pago-realizado')
 
 // agrego un evento cuando cargue el dom
 document.addEventListener('DOMContentLoaded', () => {
-    //asigno los datos
-    emailElemento.textContent = emailPagoRealizado
+    // si ninguno de los elementos es null recien ejecuta esto.
+    if(emailElemento, mdpElemento, totalElemento){
+        //asigno los datos
+        emailElemento.textContent = emailPagoRealizado
 
-    if(mdpPagoRealizado === "1"){
-        mdpPagoRealizado = "Debito"
-    }else if(mdpPagoRealizado === "2"){
-        mdpPagoRealizado = "Credito"
+        if(mdpPagoRealizado === "1"){
+            mdpPagoRealizado = "Debito"
+        }else if(mdpPagoRealizado === "2"){
+            mdpPagoRealizado = "Credito"
+        }
+        mdpElemento.textContent = mdpPagoRealizado
+
+        totalElemento.textContent = totalPagoRealizado
     }
-    mdpElemento.textContent = mdpPagoRealizado
-
-    totalElemento.textContent = totalPagoRealizado
+    
 })
 
 //DOM PARA LAS PAGINAS DE PRODUCTOS (mates.html, bombillas.html, accesorios.html, termos.html)
@@ -179,10 +183,13 @@ function filtroRangoPrecio() {
 
 // ahora agrego el evento al boton para filtrar donde escucha el evento de clic en el boton y aplica la funcion de arriba, ademas de prevenir que se envie el formulario
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('aplicar-rango-precio').addEventListener('click', (e) => {
-        e.preventDefault()
-        filtroRangoPrecio()
-    })
+    // si ninguno de los elementos es null recien ejecuta esto.
+    if(precioMinimo, precioMaximo){
+        document.getElementById('aplicar-rango-precio').addEventListener('click', (e) => {
+            e.preventDefault()
+            filtroRangoPrecio()
+        })
+    }
 })
 
 // AGREGAR AL CARRITO, POPUP/TOAST CON BOOTSTRAP
@@ -274,80 +281,85 @@ const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const productosCarrito = document.querySelector('.productos-carrito-pago')
 const precioCarrito = document.getElementById('precio-carrito-total')
 
-// si hay productos en el carrito, hace lo siguiente
-if (carrito.length > 0) {
-    carrito.forEach((producto) => {
-        // creo un contenedor para cada producto en el carrito que esta con los estilos ya en el styles.css
-        const productoCarrito = document.createElement('div')
-        productoCarrito.classList.add('producto-interno-carrito')
-
-        // creo y agrego la imagen del producto
-        const imagenProducto = document.createElement('img')
-        imagenProducto.classList.add('imagen-producto-interno')
-        imagenProducto.src = producto.imagen
-        productoCarrito.appendChild(imagenProducto)
-
-        // creo y agrego el nombre del producto
-        const nombreProducto = document.createElement('p')
-        nombreProducto.classList.add('nombre-producto-interno')
-        nombreProducto.textContent = producto.nombre
-        productoCarrito.appendChild(nombreProducto)
-
-        // creo y agrego el precio del producto
-        const precioProducto = document.createElement('h3')
-        precioProducto.classList.add('precio-producto')
-
-        // creo el span para el simbolo del precio
-        const simboloPrecio = document.createElement('span')
-        simboloPrecio.classList.add('simbolo-precio')
-        simboloPrecio.textContent = '$' 
-
-        // creo  el span para el precio
-        const valorPrecio = document.createElement('span')
-        valorPrecio.classList.add('valor-precio')
-        valorPrecio.textContent = parseInt(producto.precio) 
-
-        // agrego los spans al contenedor del precio
-        precioProducto.appendChild(simboloPrecio)
-        precioProducto.appendChild(valorPrecio)
-
-        // agrego el contenedor del precio al contenedor del producto
-        productoCarrito.appendChild(precioProducto)
-
-        // creo el boton de eliminar con el icono delete dentro
-        const eliminarProducto = document.createElement('button')
-        eliminarProducto.classList.add('eliminar-producto-interno')
+document.addEventListener('DOMContentLoaded', () => {
+    // si ninguno de los elementos es null recien ejecuta esto.
+    if(productosCarrito, precioCarrito){
+        // si hay productos en el carrito, hace lo siguiente
+        if (carrito.length > 0) {
+            carrito.forEach((producto) => {
+                // creo un contenedor para cada producto en el carrito que esta con los estilos ya en el styles.css
+                const productoCarrito = document.createElement('div')
+                productoCarrito.classList.add('producto-interno-carrito')
         
-        // creo el span con la clase para el icono
-        const spanIcon = document.createElement('span')
-        spanIcon.classList.add('material-symbols-outlined')
-        spanIcon.textContent = 'delete' // pone el icono 'delete' dentro del span
+                // creo y agrego la imagen del producto
+                const imagenProducto = document.createElement('img')
+                imagenProducto.classList.add('imagen-producto-interno')
+                imagenProducto.src = producto.imagen
+                productoCarrito.appendChild(imagenProducto)
+        
+                // creo y agrego el nombre del producto
+                const nombreProducto = document.createElement('p')
+                nombreProducto.classList.add('nombre-producto-interno')
+                nombreProducto.textContent = producto.nombre
+                productoCarrito.appendChild(nombreProducto)
+        
+                // creo y agrego el precio del producto
+                const precioProducto = document.createElement('h3')
+                precioProducto.classList.add('precio-producto')
+        
+                // creo el span para el simbolo del precio
+                const simboloPrecio = document.createElement('span')
+                simboloPrecio.classList.add('simbolo-precio')
+                simboloPrecio.textContent = '$' 
+        
+                // creo  el span para el precio
+                const valorPrecio = document.createElement('span')
+                valorPrecio.classList.add('valor-precio')
+                valorPrecio.textContent = parseInt(producto.precio) 
+        
+                // agrego los spans al contenedor del precio
+                precioProducto.appendChild(simboloPrecio)
+                precioProducto.appendChild(valorPrecio)
+        
+                // agrego el contenedor del precio al contenedor del producto
+                productoCarrito.appendChild(precioProducto)
+        
+                // creo el boton de eliminar con el icono delete dentro
+                const eliminarProducto = document.createElement('button')
+                eliminarProducto.classList.add('eliminar-producto-interno')
+                
+                // creo el span con la clase para el icono
+                const spanIcon = document.createElement('span')
+                spanIcon.classList.add('material-symbols-outlined')
+                spanIcon.textContent = 'delete' // pone el icono 'delete' dentro del span
+        
+                // agrego el span al boton
+                eliminarProducto.appendChild(spanIcon)
+        
+                // evento para eliminar el producto del carrito al hacer clic en el boton donde tiene el span con el icono
+                eliminarProducto.addEventListener('click', () => {
+                    // elimino el producto del carrito en localStorage
+                    const index = carrito.indexOf(producto)
+                    if (index > -1) {
+                        carrito.splice(index, 1)
+                        localStorage.setItem('carrito', JSON.stringify(carrito))
+                        productoCarrito.remove()
+                        console.log("Producto eliminado del carrito")
+                        calcularTotalCarrito() // actualiza el total del carrito 
+                    }
+                })
+        
+                // agrego el botón de eliminacion al contenedor del producto
+                productoCarrito.appendChild(eliminarProducto)
+        
+                // agrego el producto al contenedor del carrito finalmente
+                productosCarrito.appendChild(productoCarrito)
+            })
+        }
+    }
+})
 
-        // agrego el span al boton
-        eliminarProducto.appendChild(spanIcon)
-
-        // evento para eliminar el producto del carrito al hacer clic en el boton donde tiene el span con el icono
-        eliminarProducto.addEventListener('click', () => {
-            // elimino el producto del carrito en localStorage
-            const index = carrito.indexOf(producto)
-            if (index > -1) {
-                carrito.splice(index, 1)
-                localStorage.setItem('carrito', JSON.stringify(carrito))
-                productoCarrito.remove()
-                console.log("Producto eliminado del carrito")
-                calcularTotalCarrito() // actualiza el total del carrito 
-            }
-        })
-
-        // agrego el botón de eliminacion al contenedor del producto
-        productoCarrito.appendChild(eliminarProducto)
-
-        // agrego el producto al contenedor del carrito finalmente
-        productosCarrito.appendChild(productoCarrito)
-    })
-}
-
-// Funcion para calcular el total del carrito
+// funcion para calcular el total del carrito
 function calcularTotalCarrito(){
     let totalCarrito = 0
     if (carrito.length !== 0) {
@@ -361,7 +373,11 @@ function calcularTotalCarrito(){
 }
 
 // ejecutamos la funcion 
-calcularTotalCarrito()
+// si el elemento no es null ejecuta esto
+if(precioCarrito){
+    calcularTotalCarrito()
+}
+
 
 //funcion para mostrar el error en un input si hay datos invalidos que recibe el input y el mensaje de error
 function mostrarError(input, mensaje) {
@@ -405,7 +421,9 @@ const maxLongitudDNI = 8
 const maxLongitudTelefono = 11
 const maxLongitudTarjeta = 19
 const maxLongitudCVC = 3
-dniFormulario.addEventListener('input', () => {
+// si ninguno de los elementos es null recien ejecuta esto.
+if(dniFormulario, telefonoFormulario, numTarjetaFormulario, cvcTarjetaFormulario){
+    dniFormulario.addEventListener('input', () => {
         let valor = dniFormulario.value
         // evita que se ingresen más de los 8 caracteres permitidos
         if (valor.length > maxLongitudDNI) {
@@ -413,36 +431,37 @@ dniFormulario.addEventListener('input', () => {
         }
     })
 
-telefonoFormulario.addEventListener('input', () => {
-        let valor = telefonoFormulario.value
-        // evita que se ingresen más de los 11 caracteres permitidos
-        if (valor.length > maxLongitudTelefono) {
-            telefonoFormulario.value = valor.substring(0, maxLongitudTelefono)
+    telefonoFormulario.addEventListener('input', () => {
+            let valor = telefonoFormulario.value
+            // evita que se ingresen más de los 11 caracteres permitidos
+            if (valor.length > maxLongitudTelefono) {
+                telefonoFormulario.value = valor.substring(0, maxLongitudTelefono)
+            }
+    })
+
+    numTarjetaFormulario.addEventListener('input', () => {
+        let valor = numTarjetaFormulario.value
+        // elimina todo lo que no sea un numero, negando poner letras por ejemplo
+        valor = valor.replace(/\D/g, "")
+        // pone un guion cada 4 numeros
+        if (valor.length > 4) {
+            valor = valor.replace(/(\d{4})(?=\d)/g, "$1-")
         }
-})
+        // le pongo el limite contando los guiones
+        if (valor.length > maxLongitudTarjeta) {
+            valor = valor.substring(0, maxLongitudTarjeta)
+        }
+        numTarjetaFormulario.value = valor
+    })
 
-numTarjetaFormulario.addEventListener('input', () => {
-    let valor = numTarjetaFormulario.value
-    // elimina todo lo que no sea un numero, negando poner letras por ejemplo
-    valor = valor.replace(/\D/g, "")
-    // pone un guion cada 4 numeros
-    if (valor.length > 4) {
-        valor = valor.replace(/(\d{4})(?=\d)/g, "$1-")
-    }
-    // le pongo el limite contando los guiones
-    if (valor.length > maxLongitudTarjeta) {
-        valor = valor.substring(0, maxLongitudTarjeta)
-    }
-    numTarjetaFormulario.value = valor
-})
-
-cvcTarjetaFormulario.addEventListener('input', () => {
-    let valor = cvcTarjetaFormulario.value
-    // evita que se ingresen más de los 10 caracteres
-    if (valor.length > maxLongitudCVC) {
-        cvcTarjetaFormulario.value = valor.substring(0, maxLongitudCVC)
-    }
-})
+    cvcTarjetaFormulario.addEventListener('input', () => {
+        let valor = cvcTarjetaFormulario.value
+        // evita que se ingresen más de los 10 caracteres
+        if (valor.length > maxLongitudCVC) {
+            cvcTarjetaFormulario.value = valor.substring(0, maxLongitudCVC)
+        }
+    })
+}
 
 // funciones para verificar que un input cumpla con los requisitos
 
@@ -530,198 +549,201 @@ function inputCVC(texto){
 }
 
 // EVENTO PARA ENVIAR LOS FORMULARIOS
-botonEnviar.addEventListener('click', () => {
+// si el elemento no es null recien carga este evento
+if(botonEnviar){
+    botonEnviar.addEventListener('click', () => {
     
-    // valida los datos del cliente
-    let formularioValido = true
-
-    // valida el nombre
-    const nombre = nombreFormulario.value
-    if(!inputVacio(nombre)){
-        if (!inputLetras(nombre)) {
-            nombreFormulario.classList.add('input-error') // agrega la clase de error al input
-            mostrarError(nombreFormulario, "El nombre solo debe contener letras.")
-            formularioValido = false
-        } else {
-            nombreFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
-            ocultarError(nombreFormulario)
-        }
-    }else{
-        nombreFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(nombreFormulario, "El nombre no puede estar vacio.")
-        formularioValido = false
-    }
+        // valida los datos del cliente
+        let formularioValido = true
     
-    //valida el email
-    const email = emailFormulario.value
-    if(!inputVacio(email)){
-        if(!inputEmail(email)){
-            emailFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(emailFormulario, "El email proporcionado no es valido, verificalo.")
+        // valida el nombre
+        const nombre = nombreFormulario.value
+        if(!inputVacio(nombre)){
+            if (!inputLetras(nombre)) {
+                nombreFormulario.classList.add('input-error') // agrega la clase de error al input
+                mostrarError(nombreFormulario, "El nombre solo debe contener letras.")
+                formularioValido = false
+            } else {
+                nombreFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
+                ocultarError(nombreFormulario)
+            }
+        }else{
+            nombreFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(nombreFormulario, "El nombre no puede estar vacio.")
             formularioValido = false
-        } else {
-            emailFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
-            ocultarError(emailFormulario)
         }
-    }else{
-        emailFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(emailFormulario, "El email no puede estar vacio.")
-        formularioValido = false
-    }
-    
-    // valida el telefono
-    const telefono = telefonoFormulario.value
-    if(!inputVacio(telefono)){
-        if(!inputTelefono(telefono)){
-            telefonoFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(telefonoFormulario, "El numero de telefono debe contener 10/11 caracteres en total")
-            formularioValido = false
-        } else {
-            telefonoFormulario.classList.remove('input-error') //  elimina la clase de error si es valido y estaba 
-            ocultarError(telefonoFormulario)
-        }
-    }else{
-        telefonoFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(telefonoFormulario, "El numero de telefono no puede estar vacio.")
-        formularioValido = false
-    }
-    
-    //valida el dni
-    const dni = dniFormulario.value
-    if(!inputVacio(dni)){
-        if(!inputDni(dni)){
-            dniFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(dniFormulario, "El DNI debe contener 8 numeros.")
-            formularioValido = false
-        } else {
-            dniFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
-            ocultarError(dniFormulario)
-        }
-    }else{
-        dniFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(dniFormulario, "El DNI no puede estar vacio.")
-        formularioValido = false
-    }
-
-    //valida los datos de la tarjeta
-    // valida la forma de pago
-    const formaPago = formaPagoFormulario.value
-    if (!selectOpciones(formaPago)) {
-        formaPagoFormulario.classList.add('input-error') // agrega una clase de error al select
-        mostrarError(formaPagoFormulario, "Elegi una opcion.")
-        formularioValido = false
-    } else {
-        formaPagoFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
-        ocultarError(formaPagoFormulario)
-    }
-
-        // valida las cuotas
-        const cuotas = cuotasFormulario.value
-        if (!selectOpciones(cuotas)) {
-            cuotasFormulario.classList.add('input-error') // agrega una clase de error al select
-            mostrarError(cuotasFormulario, "Elegi una opcion.")
-            formularioValido = false
-        } else {
-            cuotasFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
-            ocultarError(cuotasFormulario)
-        }
-
-    // valida el num de tarjeta
-    const numTarj = numTarjetaFormulario.value
-    if(!inputVacio(numTarj)){
-        if(!inputNumTarjeta(numTarj)){
-            numTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(numTarjetaFormulario, "El numero de tarjeta debe contener 16 numeros")
-            formularioValido = false
-        } else {
-            numTarjetaFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
-            ocultarError(numTarjetaFormulario)
-        }
-    }else{
-        numTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(numTarjetaFormulario, "El numero de tarjeta no puede estar vacio.")
-        formularioValido = false
-    }
-
-    // valida el nombre del titular
-    const nombreTitular = nombreTitularFormulario.value
-    if(!inputVacio(nombreTitular)){
-        if (!inputLetras(nombreTitular)) {
-            nombreTitularFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(nombreTitularFormulario, "El nombre solo debe contener letras.")
-            formularioValido = false
-        } else {
-            nombreTitularFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
-            ocultarError(nombreTitularFormulario)
-        }
-    }else{
-        nombreTitularFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(nombreTitularFormulario, "El nombre no puede estar vacio.")
-        formularioValido = false
-    }
-
-    // valida la fecha de vencimiento a ver si no esta vencida
-    const fechaVenc = fechaVencimientoFormulario.value
-    if(!inputVacio(fechaVenc)){
-        if (!inputFecha(fechaVenc)) {
-            fechaVencimientoFormulario.classList.add('input-error') // agrega una clase de error al input
-            mostrarError(fechaVencimientoFormulario, "La tarjeta esta vencida.")
-            formularioValido = false
-        } else {
-            fechaVencimientoFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
-            ocultarError(fechaVencimientoFormulario)
-        }
-    }else{
-        fechaVencimientoFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(fechaVencimientoFormulario, "La fecha de vencimiento no puede estar vacia.")
-        formularioValido = false
-    }
-
-    // valida el cvc de la tarjeta
-    const cvc = cvcTarjetaFormulario.value
-    if(!inputVacio(cvc)){
-        if (!inputCVC(cvc)) {
-            cvcTarjetaFormulario.classList.add('input-error')// agrega una clase de error al input
-            mostrarError(cvcTarjetaFormulario, "El CVC debe contener 3 numeros.")
-            formularioValido = false
-        } else {
-            cvcTarjetaFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
-            ocultarError(cvcTarjetaFormulario)
-        }
-    }else{
-        cvcTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
-        mostrarError(cvcTarjetaFormulario, "El CVC no puede estar vacio.")
-        formularioValido = false
-    }
-
-    // si el formulario es valido, es decir mantiene el valor true, guarda los datos que se van a usar en otro html(pago_realizado.html) y redirecciona a este.
-    if (formularioValido) {
-        if (carrito.length === 0) {
-            // si el carrito esta vacio, mostramos el alert indicando que no puede comprar nada jajaj
-            alert("El carrito esta vacio.")
-        } else {// si no realiza la compra y hace lo siguiente
-            // guarda los datos en el sessionStorage
-            sessionStorage.setItem('email', emailFormulario.value)
-            sessionStorage.setItem('mdp', formaPagoFormulario.value)
-            sessionStorage.setItem('totalPago', precioCarrito.textContent)
-
-            //vacio el carrito
-            localStorage.removeItem('carrito')  // elimina el carrito completo de localStorage
-
-            // elimino los productos del DOM
-            const productosCarrito = document.querySelectorAll('.producto-carrito') 
-            productosCarrito.forEach(productoCarrito => {
-                productoCarrito.remove() // elimina cada producto del carrito en el DOM
-            })
-            
-            // imprime por consola esto
-            console.log("Compra realizada")
         
-            // actualizar el total del carrito 
-            calcularTotalCarrito()
-
-            // si no hay datos erroneos redirecciona a este html
-            window.location.href = 'pago_realizado.html'
+        //valida el email
+        const email = emailFormulario.value
+        if(!inputVacio(email)){
+            if(!inputEmail(email)){
+                emailFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(emailFormulario, "El email proporcionado no es valido, verificalo.")
+                formularioValido = false
+            } else {
+                emailFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
+                ocultarError(emailFormulario)
+            }
+        }else{
+            emailFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(emailFormulario, "El email no puede estar vacio.")
+            formularioValido = false
         }
-    }
-})
+        
+        // valida el telefono
+        const telefono = telefonoFormulario.value
+        if(!inputVacio(telefono)){
+            if(!inputTelefono(telefono)){
+                telefonoFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(telefonoFormulario, "El numero de telefono debe contener 10/11 caracteres en total")
+                formularioValido = false
+            } else {
+                telefonoFormulario.classList.remove('input-error') //  elimina la clase de error si es valido y estaba 
+                ocultarError(telefonoFormulario)
+            }
+        }else{
+            telefonoFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(telefonoFormulario, "El numero de telefono no puede estar vacio.")
+            formularioValido = false
+        }
+        
+        //valida el dni
+        const dni = dniFormulario.value
+        if(!inputVacio(dni)){
+            if(!inputDni(dni)){
+                dniFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(dniFormulario, "El DNI debe contener 8 numeros.")
+                formularioValido = false
+            } else {
+                dniFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
+                ocultarError(dniFormulario)
+            }
+        }else{
+            dniFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(dniFormulario, "El DNI no puede estar vacio.")
+            formularioValido = false
+        }
+    
+        //valida los datos de la tarjeta
+        // valida la forma de pago
+        const formaPago = formaPagoFormulario.value
+        if (!selectOpciones(formaPago)) {
+            formaPagoFormulario.classList.add('input-error') // agrega una clase de error al select
+            mostrarError(formaPagoFormulario, "Elegi una opcion.")
+            formularioValido = false
+        } else {
+            formaPagoFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
+            ocultarError(formaPagoFormulario)
+        }
+    
+            // valida las cuotas
+            const cuotas = cuotasFormulario.value
+            if (!selectOpciones(cuotas)) {
+                cuotasFormulario.classList.add('input-error') // agrega una clase de error al select
+                mostrarError(cuotasFormulario, "Elegi una opcion.")
+                formularioValido = false
+            } else {
+                cuotasFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
+                ocultarError(cuotasFormulario)
+            }
+    
+        // valida el num de tarjeta
+        const numTarj = numTarjetaFormulario.value
+        if(!inputVacio(numTarj)){
+            if(!inputNumTarjeta(numTarj)){
+                numTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(numTarjetaFormulario, "El numero de tarjeta debe contener 16 numeros")
+                formularioValido = false
+            } else {
+                numTarjetaFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
+                ocultarError(numTarjetaFormulario)
+            }
+        }else{
+            numTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(numTarjetaFormulario, "El numero de tarjeta no puede estar vacio.")
+            formularioValido = false
+        }
+    
+        // valida el nombre del titular
+        const nombreTitular = nombreTitularFormulario.value
+        if(!inputVacio(nombreTitular)){
+            if (!inputLetras(nombreTitular)) {
+                nombreTitularFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(nombreTitularFormulario, "El nombre solo debe contener letras.")
+                formularioValido = false
+            } else {
+                nombreTitularFormulario.classList.remove('input-error')// elimina la clase de error si es valido y estaba 
+                ocultarError(nombreTitularFormulario)
+            }
+        }else{
+            nombreTitularFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(nombreTitularFormulario, "El nombre no puede estar vacio.")
+            formularioValido = false
+        }
+    
+        // valida la fecha de vencimiento a ver si no esta vencida
+        const fechaVenc = fechaVencimientoFormulario.value
+        if(!inputVacio(fechaVenc)){
+            if (!inputFecha(fechaVenc)) {
+                fechaVencimientoFormulario.classList.add('input-error') // agrega una clase de error al input
+                mostrarError(fechaVencimientoFormulario, "La tarjeta esta vencida.")
+                formularioValido = false
+            } else {
+                fechaVencimientoFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
+                ocultarError(fechaVencimientoFormulario)
+            }
+        }else{
+            fechaVencimientoFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(fechaVencimientoFormulario, "La fecha de vencimiento no puede estar vacia.")
+            formularioValido = false
+        }
+    
+        // valida el cvc de la tarjeta
+        const cvc = cvcTarjetaFormulario.value
+        if(!inputVacio(cvc)){
+            if (!inputCVC(cvc)) {
+                cvcTarjetaFormulario.classList.add('input-error')// agrega una clase de error al input
+                mostrarError(cvcTarjetaFormulario, "El CVC debe contener 3 numeros.")
+                formularioValido = false
+            } else {
+                cvcTarjetaFormulario.classList.remove('input-error') // elimina la clase de error si es valido y estaba 
+                ocultarError(cvcTarjetaFormulario)
+            }
+        }else{
+            cvcTarjetaFormulario.classList.add('input-error') // agrega una clase de error al input
+            mostrarError(cvcTarjetaFormulario, "El CVC no puede estar vacio.")
+            formularioValido = false
+        }
+    
+        // si el formulario es valido, es decir mantiene el valor true, guarda los datos que se van a usar en otro html(pago_realizado.html) y redirecciona a este.
+        if (formularioValido) {
+            if (carrito.length === 0) {
+                // si el carrito esta vacio, mostramos el alert indicando que no puede comprar nada jajaj
+                alert("El carrito esta vacio.")
+            } else {// si no realiza la compra y hace lo siguiente
+                // guarda los datos en el sessionStorage
+                sessionStorage.setItem('email', emailFormulario.value)
+                sessionStorage.setItem('mdp', formaPagoFormulario.value)
+                sessionStorage.setItem('totalPago', precioCarrito.textContent)
+    
+                //vacio el carrito
+                localStorage.removeItem('carrito')  // elimina el carrito completo de localStorage
+    
+                // elimino los productos del DOM
+                const productosCarrito = document.querySelectorAll('.producto-carrito') 
+                productosCarrito.forEach(productoCarrito => {
+                    productoCarrito.remove() // elimina cada producto del carrito en el DOM
+                })
+                
+                // imprime por consola esto
+                console.log("Compra realizada")
+            
+                // actualizar el total del carrito 
+                calcularTotalCarrito()
+    
+                // si no hay datos erroneos redirecciona a este html
+                window.location.href = 'pago_realizado.html'
+            }
+        }
+    })
+}
