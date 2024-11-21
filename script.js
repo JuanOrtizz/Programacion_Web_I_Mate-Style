@@ -116,6 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 const precioMinimo = document.getElementById('rango-precio-min')
 const precioMaximo = document.getElementById('rango-precio-max')
 const productos = document.querySelectorAll('.producto-unitario')
+// tomo el contenedor de productos, para modificarlo si no hay productos en el rango del precio, accedo al indice 0 que es el unico elemento en la pagina con esta clase
+const contenedorProductos = document.getElementsByClassName('contenedor-de-productos')[0]
 
 // esto lo realice guiandome de una web donde amplie la informacion para como hacer para ocultar los productos que no estan dentro de ese rango, y
 // llevo a cabo esto para guardar el display que usan para despues recuperarlo.
@@ -129,17 +131,21 @@ const productosOriginales = Array.from(productos).map(producto => {
 // funcion para filtrar por precios
 function filtroRangoPrecio() {
     // obtengo los valores de los inputs pasandolos a float/decimal
-    const precioMinimoValor = parseFloat(precioMinimo.value)
-    const precioMaximoValor = parseFloat(precioMaximo.value)
+    let precioMinimoValor = parseFloat(precioMinimo.value)
+    let precioMaximoValor = parseFloat(precioMaximo.value)
+
+    //  si ya hay un mensaje que no hay productos en ese rango de precio lo elimina
+    const mensajeFiltro = document.querySelector('.texto-filtro-sin-productos');
+    if (mensajeFiltro) {
+        mensajeFiltro.remove(); // Elimina el mensaje existente si lo hay
+    }
 
     // valido los precios y en este unico caso en todo el simulador doy alerts. Ya que si no se genera una UX mala y molesta para el usuario
     if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
         alert("El precio mínimo debe ser un número mayor o igual a 0")
-        return
     }
     else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
         alert("El precio máximo debe ser un número mayor al precio mínimo")
-        return
     }
 
     // filtro productos, agregando una variable bandera y un array como esta solicitado en la actividad
@@ -170,12 +176,25 @@ function filtroRangoPrecio() {
     })
 
     // vacia los input 
-    precioMinimo.value = '' 
-    precioMaximo.value = ''
+    precioMinimo.addEventListener('click', () =>{
+            precioMinimo.value = '' 
+            precioMaximo.value = ''
+    })
+
 
     // si no hay productos filtrados, al menos uno, imprime por consola lo siguiente y si no, imprime un console table de los productos
     if (!productosFiltrados) {
         console.log("No hay productos en el rango especificado")
+        const textoAgregar = document.createElement('h3')
+        if(isNaN(precioMinimoValor)){
+            precioMinimoValor = 0
+        }
+        if(isNaN(precioMaximoValor)){
+            precioMaximoValor = 0
+        }
+        textoAgregar.textContent = "No hay productos en el rango de precio: " + "$" +precioMinimoValor + " - $" + precioMaximoValor
+        textoAgregar.classList.add('texto-filtro-sin-productos')
+        contenedorProductos.appendChild(textoAgregar)
     } else { 
         console.table(productosVisibles)
     }
