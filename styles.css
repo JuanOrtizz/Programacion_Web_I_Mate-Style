@@ -718,7 +718,7 @@ iframe{
 
 .carrito-pago{
     width: auto;
-    margin: 40px 4vw 20px 2vw;
+    margin: 40px 0vw 20px 0;
     padding: 20px;
     background-color: #FFFFFF;
     grid-area: carrito;
@@ -746,8 +746,12 @@ iframe{
 
 .producto-interno-carrito{
     background-color: #f5f5f5;
-    display:flex;
-    justify-content: space-around;
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: auto; 
+    grid-template-areas:
+    "imagen nombre precio botones eliminar";
+    justify-content: center;
     align-items: center;
     padding: 10px 0 10px 0;
     margin: 0;
@@ -760,25 +764,63 @@ iframe{
 }
 
 .imagen-producto-interno{
+    grid-area: imagen;
     height: 70px;
     width: 60px;
 }
 
 .nombre-producto-interno{
+    grid-area: nombre;
     font-size: 0.9rem;
-    text-align: center;
+    text-align: left;
     padding: 0;
     margin: 0;
 }
 
 .precio-producto span{
+    grid-area: precio;
     font-size: 1rem ;
     text-align: center;
     padding: 0;
     margin: 0;
 }
 
+.cantidad-stock{
+    display: flex;
+    grid-area: botones;
+    justify-content: center; 
+    align-items: center;  
+    margin: 0;
+    gap: 10px;
+    padding: 0;
+}
+
+.cantidad-stock button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px; 
+    border-radius: 50%;
+    border: 1px solid #2b2c28;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.cantidad-stock button:hover{
+    background-color: #b6b6b6;
+}
+
+.cantidad-stock p{
+    grid-area: botones;
+    padding: 0;
+    margin: 0;
+}
+
 .eliminar-producto-interno{
+    grid-area: eliminar;
     background-color: transparent;
     margin: 0;
     padding: 0;
@@ -1282,6 +1324,7 @@ footer{
     }
 
     /*MAIN (CARRITO_PAGO.HTML)*/
+    
     .contenedor-pago {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
@@ -1373,7 +1416,7 @@ footer{
         font-size: 0.8rem; 
         font-weight: bold; 
     }
-    
+
     /*diseño del footer*/
 
     footer {
@@ -1528,6 +1571,45 @@ footer{
     .container {
         margin-top: 40px; 
         margin-bottom: 40px; 
+    }
+
+    /*Main carrito_pago.html*/
+    .carrito-pago h2{
+        font-size: 1rem;
+    }
+
+    .imagen-producto-interno{
+        height: 50px;
+        width: 40px;
+    }
+    
+    .nombre-producto-interno{
+        font-size: 0.7rem;
+    }
+    
+    .precio-producto span{
+        font-size: 0.7rem ;
+    }
+    
+    .cantidad-stock{
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .cantidad-stock button{
+        width: 18px;
+        height: 18px; 
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .cantidad-stock p{
+        font-size: 0.7rem;
+    }
+    
+    .total-pago p{
+        font-size: 0.7rem;
     }
 
     /*MAIN (PAGO_REALIZADO.HTML)*/
@@ -1972,9 +2054,11 @@ footer{
         font-size: 0.7rem;
     }
 
+    
     .producto-unitario {
         width: 90%;
-        height: 30vh;
+        height:35vh;
+        grid-template-rows: 65% auto auto 10%;
     }
 
     .producto-unitario p {
@@ -2052,14 +2136,27 @@ footer{
 
     .carrito-pago{
         margin: 20px 0;
+        padding: 10px;
     }
     
     .carrito-pago h2{
         font-size: 1.2rem;
     }
     
+    .producto-interno-carrito{
+        justify-content: space-between;
+        grid-template-columns: 40px 70px 50px 60px 20px;
+    }
+
     .eliminar-producto-interno span{
         color: rgb(216, 0, 0);
+        font-size: 20px;
+    }
+
+    .eliminar-producto-interno {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .imagen-producto-interno{
@@ -2069,10 +2166,13 @@ footer{
     
     .nombre-producto-interno{
         font-size: 0.7rem !important;
+        margin-right: 4px;
+        box-sizing: border-box;
     }
     
     .precio-producto span{
         font-size: 0.7rem;
+        text-align: center;
     }
     
     .total-pago {
@@ -2084,7 +2184,25 @@ footer{
         display: flex;
         justify-content: space-between;
     }
+
+    .cantidad-stock{
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .cantidad-stock button{
+        width: 18px;
+        height: 18px; 
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .cantidad-stock p{
+        font-size: 0.7rem;
+    }
     
+
     .total-pago p{
         align-items: center;
         font-size: 1rem;
