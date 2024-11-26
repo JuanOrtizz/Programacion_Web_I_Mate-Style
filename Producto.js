@@ -3,10 +3,11 @@ class Producto{ // creo la clase producto, para manejar de forma mas modular el 
         this.imagen = imagen
         this.nombre = nombre
         this.precio = precio
+        this.cantidad = 1
     }
 
     imprimirInformacion(){
-        return "Nombre del producto: " + this.nombre + ", Precio del producto: $" +this.precio + "Imagen: " + this.imagen
+        return "Nombre del producto: " + this.nombre + ", Precio del producto: $" +this.precio + "Imagen: " + this.imagen + this.cantidad
     }
 
     // actua como un set de nombre
@@ -21,5 +22,3 @@ class Producto{ // creo la clase producto, para manejar de forma mas modular el 
 }
 
 export default Producto
-//Una consulta es si hay herencia en JS, y si es posible utilizarla, para cada tipo de producto, para asi diferenciar mas especificamente cada uno de estos
-// por ejemplo Mate, Bombilla, Termo, Accesorio, y que queda una de ellas hereden de Producto

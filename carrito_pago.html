@@ -122,7 +122,25 @@
                     <button type="submit" id="boton-comprar">
                             Comprar
                     </button><!--Boton de tipo submit para enviar el formulario a la direccion necesaria-->
-                </div><!--El boton comprar, una vez se envia el formulario con JS vamos a hacer que nos redireccione a la pagina pago_realizado.html-->
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Compra rechazada</h5>
+                        </div>
+                        <div class="modal-body">
+                        El carrito esta vacio. Agrega al menos un producto para realizar la compra
+                        </div>
+                        <div class="modal-footer">
+                        <button id="boton-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
         </section>
     </main>
     <footer>
