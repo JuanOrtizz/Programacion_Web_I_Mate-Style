@@ -32,84 +32,135 @@ document.addEventListener('DOMContentLoaded', () => {
     
 })
 
+// MANEJO DE LA PESTAÑANA PANTALLA_CARGA_COMPRA.HTML
+// funcion asincrona para obtener las frases de una api de mockAPI que cree yo.
+async function cargarApiFrases() {
+    fetch("https://67474f1a38c8741641d64755.mockapi.io/frases")
+    .then(response => response.json())
+    .then(data =>
+        {const frases = data.map(item => item.frase) // utiliza map
+        crearFraseDeCompra(frases)
+        }
+    )    
+}
+
+// funcion para crear la frase de compra
+function crearFraseDeCompra(frases){
+    // traigo el contenedor de la frase
+    const contenedorFrase = document.getElementById('contenedor-frase')
+    if(contenedorFrase){
+        if (frases.length > 0) {
+            // toma una frase aleatoria
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)] // uso la clase math para que ponga una frase random de las 5 que hay, cada vez que se realiza una compra
+            const frase = document.createElement('p')
+            frase.textContent = fraseAleatoria
+        
+            // agrego la frase al contenedor
+            contenedorFrase.appendChild(frase)
+        }
+    }
+}
+
+// MANEJO DE LAS PESTAÑAS MATES.HTML, BOMBILLAS.HTML, TERMOS.HTML Y ACCESORIOS.HTML
+// funcion asincrona que permite cargar TODOS los objetos en el DOM 
+async function cargarJson(){
+    // obtengo con fetch las respuesta del json
+    const respuesta = await fetch("./api/productos.json")
+    // lo paso a json
+    const productos = await respuesta.json()
+
+    // detecta la categoria por la localizacion del path/direccion de la pestaña, lo hice con ayuda de investigacion realizada en stackoverflow y chatgpt
+    const categoria = window.location.pathname.split('/').pop().split('.').shift()
+
+    //obtengo del html el contenedor donde los voy a agregar a los productos
+    const contenedorProductosJson = document.querySelector('.contenedor-de-productos')
+
+    // filtra los productos por la categoria que son (mates, bombillas, termos, accesorios)
+    const productosFiltrados = productos.filter(producto => producto.categoria === categoria) // uso filter
+
+    // si hay productos, los agrega al contenedor correspondiente
+    if (productosFiltrados.length > 0) {
+        console.log(productosFiltrados) // imprimo por consola los productos para visualizar que si cargan desde aca y no desde el html
+        crearContenedoresProductosJson(productosFiltrados, contenedorProductosJson)
+    }
+}
+
+// funcion para crear los productos en el DOM
+function crearContenedoresProductosJson(productosFiltrados, contenedorProductosJson){
+    productosFiltrados.forEach((producto) =>{
+        // por cada producto crea su card que tenian antes en el html
+        const contenedorIndividual = document.createElement('div')
+        contenedorIndividual.classList.add('producto-unitario')
+        contenedorIndividual.innerHTML = 
+        `<img class="imagen-producto" src="${producto.imagen}" alt="${producto.nombre}">
+        <p class="nombre-producto">${producto.nombre}</p>
+        <h3 class="precio-producto">$${producto.precio}</h3>
+        <button class="boton-productos" type="submit">Agregar al carrito</button>
+        `
+        // lo agrego al contenedor pasado por parametros
+        contenedorProductosJson.appendChild(contenedorIndividual)
+
+        // FUNCIONALIDAD DE AGREGAR AL CARRITO, AGREGANDOLO EL PRODUCTO AL CARRITO DE PRODUCTOS EN CARRITO_PAGO.HTML
+        // selecciono todos los botones Agregar al carrito
+        const botonAgregarCarrito = contenedorIndividual.querySelector('.boton-productos')
+
+        // asigno el evento de clic a todos los botones agregar al carrito
+        botonAgregarCarrito.addEventListener('click', () => {
+            // encuentro el contenedor del producto que se hizo clic
+            const producto = botonAgregarCarrito.closest('.producto-unitario')
+
+            // guardo sus datos 
+            const imagen = producto.querySelector('.imagen-producto').src
+            const nombre = producto.querySelector('.nombre-producto').textContent
+            const precio = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', '').trim()) //le elimino el símbolo $ y  convierto a numero
+
+            // crea un objeto producto 
+            const productoNuevo = new Producto (imagen, nombre, precio) 
+
+            carrito.agregar(productoNuevo)
+
+            // imprime por consola que se agrego el producto alc arrito
+            console.log("Producto agregado al carrito", productoNuevo)
+        })
+    })  
+}
+
+// EVENTO AL CARGAR EL DOM PARA QUE CARGUE LOS PRODUCTOS ESTATICOS QUE ESTABAN EN EL HTML, AHORA DESDE UN JSON USANDO FETCH. ADEMAS TAMBIEN CARGA LA FRASE DE COMPRA, SIEMPRE Y CUANDO ESTE DISPONIBLE SU CONTENEDOR
+document.addEventListener('DOMContentLoaded', () =>{
+    cargarJson()
+    cargarApiFrases()
+})
+
 //DOM PARA LAS PAGINAS DE PRODUCTOS (mates.html, bombillas.html, accesorios.html, termos.html)
 //FILTRAR POR PRECIO LOS PRODUCTOS
 // tomo los precios ingresados por el usuario en el input y todos los productos con el querySelectorAll
 const precioMinimo = document.getElementById('rango-precio-min')
 const precioMaximo = document.getElementById('rango-precio-max')
-const productos = document.querySelectorAll('.producto-unitario')
 // tomo el contenedor de productos, para modificarlo si no hay productos en el rango del precio, accedo al indice 0 que es el unico elemento en la pagina con esta clase
 const contenedorProductos = document.getElementsByClassName('contenedor-de-productos')[0]
 
-// esto lo realice guiandome de una web donde amplie la informacion para como hacer para ocultar los productos que no estan dentro de ese rango, y
-// llevo a cabo esto para guardar el display que usan para despues recuperarlo.
-const productosOriginales = Array.from(productos).map(producto => {
-    return {
-        producto: producto,
-        displayOriginal: window.getComputedStyle(producto).display
-    }
-})
+// funcion para cargar los productos filtrados por precio usando filter.
+async function cargarJsonFiltradoPrecio (precioMinimoValor, precioMaximoValor){
+    // obtengo con fetch las respuesta del json
+    const respuesta = await fetch("./api/productos.json")
+    // lo paso a json
+    const productos = await respuesta.json()
 
-// tiene el estado para ver si se filtro o no un producto, por default esta en false
-let productosFiltrados = false
+    // detecta la categoria por la localizacion del path/direccion de la pestaña, lo hice con ayuda de investigacion realizada en stackoverflow y chatgpt
+    const categoria = window.location.pathname.split('/').pop().split('.').shift()
 
-// funcion para filtrar por precios
-function filtroRangoPrecio() {
-    // devuelvo el valor false a la variable para permitir filtrar de nuevo
-    productosFiltrados = false
-    // obtengo los valores de los inputs pasandolos a float/decimal
-    let precioMinimoValor = parseFloat(precioMinimo.value)
-    let precioMaximoValor = parseFloat(precioMaximo.value)
+    // obtengo del html el contenedor donde los voy a agregar a los productos
+    const contenedorProductosJson = document.querySelector('.contenedor-de-productos')
 
-    //  si ya hay un mensaje que no hay productos en ese rango de precio lo elimina
-    const mensajeFiltro = document.querySelector('.texto-filtro-sin-productos');
-    if (mensajeFiltro) {
-        mensajeFiltro.remove(); // Elimina el mensaje existente si lo hay
-    }
+    // filtra los productos por la categoria que son (mates, bombillas, termos, accesorios) y ahora ademas por el rango de precio, que ingreso el usuario
+    const productosFiltrados = productos.filter(producto => producto.categoria === categoria && producto.precio >= precioMinimoValor && producto.precio <= precioMaximoValor)
 
-    // valido los precios y en este unico caso en todo el simulador doy alerts. Ya que si no se genera una UX mala y molesta para el usuario
-    if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
-        funcionInternaFiltroPreciosModales("El precio mínimo debe ser igual o mayor a 0")
-    }
-    else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
-        funcionInternaFiltroPreciosModales("El precio máximo debe ser un número mayor al precio mínimo")
-    }
-
-    // filtro productos y agrego un array como esta solicitado en la actividad
-    const productosVisibles = []
-
-    // antes de volver a filtrar recupero el display que tenian todos los productos antes de filtrar nuevamente, tal como mencione mas arriba.
-    productosOriginales.forEach(item => {
-        item.producto.style.display = item.displayOriginal // restauro el display original
-    })
-
-    // bucle for each de los productos donde va guardando el precio, nombre e imagen de cada uno y si el precio es el filtrado lo agrega al array que declare arriba
-    productos.forEach(producto => {
-        // guardo por cada producto su informacion
-        const precioProducto = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', ''))
-        const nombreProducto = producto.querySelector('.nombre-producto').textContent
-        const imagenProducto = producto.querySelector('.imagen-producto').getAttribute('src')
-
-        // si ese producto tiene un precio entre el rango, muestra el producto y lo agrega al array para poder mostrarlo
-        if (precioProducto >= precioMinimoValor && precioProducto <= precioMaximoValor) {
-            producto.style.visibility = 'visible' // muestra el producto dentro del rango de precio
-            const productoObj = new Producto(imagenProducto, nombreProducto, precioProducto) // crea un objeto Producto, utilizando la clase Producto.js, tal como solicita la entrega
-            productosVisibles.push(productoObj) // agrega el producto al array
-            productosFiltrados = true // coloca la bandera en true, para notificar que por lo menos hay 1 producto filtrado 
-        } else {
-            producto.style.display = 'none' // si no esta en el rango, lo oculta del html
-        }
-    })
-
-    // vacia los input 
-    precioMinimo.addEventListener('click', () =>{
-            precioMinimo.value = '' 
-            precioMaximo.value = ''
-    })
-
-
-    // si no hay productos filtrados, al menos uno, imprime por consola lo siguiente y si no, imprime un console table de los productos
-    if (!productosFiltrados) {
+    // si hay productos, los agrega y los imprime por consola en formato table
+    if (productosFiltrados.length > 0) {
+        crearContenedoresProductosJson(productosFiltrados, contenedorProductosJson)
+        console.table(productosFiltrados)
+    }else{
+        // si no hay productos filtrados, imprime por consola lo siguiente
         console.log("No hay productos en el rango especificado")
         const textoAgregar = document.createElement('h3')
         if(isNaN(precioMinimoValor)){
@@ -121,26 +172,57 @@ function filtroRangoPrecio() {
         textoAgregar.textContent = "No hay productos en el rango de precio: " + "$" +precioMinimoValor + " - $" + precioMaximoValor
         textoAgregar.classList.add('texto-filtro-sin-productos')
         contenedorProductos.appendChild(textoAgregar)
-    } else { 
-        console.table(productosVisibles)
-    }
+    } 
 }
 
+// funcion para filtrar por precios
+function filtroRangoPrecio() {
+    // obtengo los valores de los inputs pasandolos a float/decimal
+    let precioMinimoValor = parseFloat(precioMinimo.value)
+    let precioMaximoValor = parseFloat(precioMaximo.value)
+
+    // si ya hay un mensaje que no hay productos en ese rango de precio lo elimina
+    const mensajeFiltro = document.querySelector('.texto-filtro-sin-productos')
+    if (mensajeFiltro) {
+        mensajeFiltro.remove() // elimina el mensaje existente si lo hay
+    }
+
+    // valido los precios y en este unico caso lanzo modales para indicar el error.
+    if (isNaN(precioMinimoValor) || precioMinimoValor < 0) {
+        funcionInternaFiltroPreciosModales("El precio mínimo debe ser igual o mayor a 0")
+    }
+    else if (isNaN(precioMaximoValor) || precioMaximoValor <= precioMinimoValor) {
+        funcionInternaFiltroPreciosModales("El precio máximo debe ser un número mayor al precio mínimo")
+    }
+
+    // vacio el contenido del contenedor de los productos
+    contenedorProductos.innerHTML = ''
+
+    // cargo los productos siendo filtrados por el rango de precios y creandolos de nuevo en el dom
+    cargarJsonFiltradoPrecio(precioMinimoValor, precioMaximoValor)
+
+    // vacia los input al hacer clic en el del precio minimo
+    precioMinimo.addEventListener('click', () =>{
+            precioMinimo.value = '' 
+            precioMaximo.value = ''
+    })
+}
+
+// funcion interna para mostrar los modales en los errores de inputs de filtros
 function funcionInternaFiltroPreciosModales(mensaje){
     const modalElement = document.getElementById("exampleModal")
-    const modal = new bootstrap.Modal(document.getElementById("exampleModal"))
+    const modal = new bootstrap.Modal(modalElement)
     const bodyModal = document.querySelector('.modal-body')
     const parrafoModal = document.createElement('p')
     bodyModal.innerHTML = ''
     parrafoModal.textContent = mensaje
     bodyModal.appendChild(parrafoModal)
-    modalElement.removeAttribute('aria-hidden')
     modal.show()
+
     const botonModal = document.getElementById('boton-modal')
     if(botonModal){
         botonModal.addEventListener('click', () =>{
             modal.hide()
-            modalElement.setAttribute('aria-hidden', 'true')
         })
 }
 }
@@ -203,36 +285,9 @@ document.addEventListener('click', (event) => {
     }
 })
 
-// AGREGAR AL CARRITO, AGREGANDOLO AL CARRITO DE PRODUCTOS DEW CARRITO_PAGO.HTML
-// selecciono todos los botones Agregar al carrito
-const botonesAgregarCarrito = document.querySelectorAll('.boton-productos')
-console.log(botonesAgregarCarrito)
-const carrito = new Carrito()
-
-// asigno el evento de clic a todos los botones agregar al carrito
-botonesAgregarCarrito.forEach((boton) => {
-    boton.addEventListener('click', () => {
-        // encuentro el contenedor del producto que se hizo clic
-        const producto = boton.closest('.producto-unitario')
-
-        // guardo sus datos 
-        const imagen = producto.querySelector('.imagen-producto').src
-        const nombre = producto.querySelector('.nombre-producto').textContent
-        const precio = parseFloat(producto.querySelector('.precio-producto').textContent.replace('$', '').trim()) //le elimino el símbolo $ y  convierto a numero
-
-        // crea un objeto producto 
-        const productoNuevo = new Producto (imagen, nombre, precio) 
-
-        carrito.agregar(productoNuevo)
-
-        // imprime por consola que se agrego el producto alc arrito
-        console.log("Producto agregado al carrito", productoNuevo)
-    })
-})
-
 
 //AGREGA LOS ELEMENTOS DEL CARRITO GUARDADO EN EL LOCALSTORAGE EN LA SECCION PRODUCTOS DEL CARRITO_PAGO.HTML
-
+const carrito = new Carrito()
 // selecciono el contenedor donde se agregan los productos del carrito y tambien el precio total del carrito para ir actualizandolo
 const productosCarrito = document.querySelector('.productos-carrito-pago')
 const precioCarrito = document.getElementById('precio-carrito-total')
@@ -294,13 +349,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cantidadProducto = document.createElement('p')
                 cantidadProducto.textContent = producto.cantidad
                 
+                // agrego en orden
                 botonesStock.appendChild(botonRestarStock)
                 botonesStock.appendChild(cantidadProducto)
                 botonesStock.appendChild(botonSumarStock)
 
-                // agrego en orden
+                // agrego los botones al contenedor
                 productoCarrito.appendChild(botonesStock)
-
 
                 // creo el boton de eliminar con el icono delete dentro
                 const eliminarProducto = document.createElement('button')
@@ -347,15 +402,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function sumarProducto(producto, cantidadElemento){
     producto.cantidad++ // aumenta en uno la cantidad en el objeto producto
     cantidadElemento.textContent = producto.cantidad // actualiza la cantidad en el DOM
+    carrito.guardar() // guarda de nuevo la cantidad en el localstorage
 }
 
 function restarProducto(producto, cantidadElemento, productoCarrito){
     if (producto.cantidad > 1) {
         producto.cantidad-- // Decrementa la cantidad en el objeto producto
-        cantidadElemento.textContent = producto.cantidad; // actualiza la cantidad en el DOM
+        cantidadElemento.textContent = producto.cantidad // actualiza la cantidad en el DOM
+        carrito.guardar()// guarda la cantidad seteada en el localstorage
     }else if (producto.cantidad <= 1){ // si es menor o igual a 1 lo elimina a todo el contenedor del producto, similar al span con el simbolo borrar
         carrito.eliminar(producto)
         productoCarrito.remove()
+        carrito.guardar()
     }
 }
 
@@ -738,7 +796,6 @@ if(botonEnviar){
                     if(botonModal){
                         botonModal.addEventListener('click', () =>{
                             modal.hide()
-                            modalElement.setAttribute('aria-hidden', 'true')
                         })
                     }
                 }
@@ -764,8 +821,35 @@ if(botonEnviar){
                 precioCarrito.textContent = "$" + carrito.calcularTotalCarrito()
     
                 // si no hay datos erroneos redirecciona a este html
-                window.location.href = 'pago_realizado.html'
+                window.location.href = 'pantalla_carga_compra.html'
             }
         }
     })
+}
+
+const barraProgreso = document.querySelector('.progress-bar')
+if (barraProgreso){
+    // declaro una variable para el progreso de la barra de bootstrap
+    let progreso = 0
+
+    const tiempoIncremento = 50 // tiempo entre cada incremento en milisegundos
+    let tiempoTotal = 5000 // tiempo total que son 5 segundos
+    
+    const incremento = 100 / (tiempoTotal / tiempoIncremento) // calculo el incremento 
+
+    let intervalo = setInterval(actualizarProgresoBarra, tiempoIncremento) // declaro el intervalo con la funcion de abajo
+
+    function actualizarProgresoBarra() {
+        if (progreso < 100) { // si el progreso es menor a 100 ejecuta esto
+            progreso += incremento
+            barraProgreso.style.width = progreso + '%' // actualiza el ancho de la barra
+            barraProgreso.setAttribute('aria-valuenow', progreso) // actualiza el valor de aria-valuenow de la barra de bootstrap
+        } else{ // si el progreso es igual o mayor a 100
+            clearInterval(intervalo) // limpia el intervalo
+            // redirige a la pagina de pago_realizado.html despues de medio segundo de completar el progreso, asi el dom carga correctamente la barra al 100
+            setTimeout(() => {
+                window.location.href = 'pago_realizado.html'
+            }, 500)
+        }
+    }   
 }
