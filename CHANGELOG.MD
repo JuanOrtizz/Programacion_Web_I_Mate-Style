@@ -4,6 +4,27 @@ Este archivo documenta los cambios realizados en el proyecto, organizados por en
 
 ---
 
+## [**Release/segundo-parcial**] - **Pendiente**
+
+### **Añadido**
+- Productos obtenidos desde un archivo local `productos.json` en la carpeta `api/`, reemplazando los datos previamente integrados en el HTML. Funciones `async` con `await` cargan y filtran datos dinámicamente en el DOM.  
+- Filtrado por rango de precios mediante `filter`. Los precios ingresados por el usuario actualizan el DOM con los resultados desde `productos.json`.  
+- Frases dinámicas desde MockAPI para mejorar la experiencia de compra. Una barra de progreso simula la confirmación de compra antes de redirigir al usuario a la página de confirmación con los datos del formulario. Las frases se seleccionan aleatoriamente con `map` y funciones matemáticas.  
+- Nueva página `pantalla_carga_compra.html` con componentes Bootstrap. Se modifica dinámicamente el DOM para mostrar frases de MockAPI.  
+- Reglas en el repositorio: Bloqueo de `push` directos a `develop` y `master`. Solo se permiten `pull requests` con al menos un revisor aprobado.  
+- Nuevo directorio `api/` con `pull_request_template.md` como plantilla para las pull requests.  
+- Creado `changelog.md` para documentar entregas realizadas.
+
+### **Cambiado**
+- Mejoras en diseño de `styles.css`.  
+- Eliminados productos integrados en los archivos HTML, ahora gestionados desde el JSON.  
+- Ajustes en HTML para mejor interacción con el DOM.  
+
+### **Corregido**
+- Problemas menores de visualización en dispositivos móviles.
+
+---
+
 ## [**Feature/cuarta-entrega**] - 2024-11-27
 
 ### **Añadido**
