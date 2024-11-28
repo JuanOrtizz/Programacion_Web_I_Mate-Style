@@ -25,5 +25,5 @@ Marca con una "X" los elementos completados:
 
 ---
 
-## Capturas de pantalla (si hay cambios en la UI):
-Si tu cambio afecta la interfaz de usuario, agrega capturas de antes y después.
+## Capturas de pantalla:
+Si tu cambio afecta la interfaz de usuario, agrega capturas de antes y después. O capturas de pantalla para informar un cambio de documentacion,etc.
