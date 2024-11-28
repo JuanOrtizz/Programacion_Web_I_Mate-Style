@@ -21,7 +21,7 @@ Marca con una "X" los elementos completados:
 ---
 
 ## Información adicional
-- **Notas para el revisor**: Agrega cualquier dato relevante que facilite la revisión del código.
+- **Notas para el revisor**: Agrega cualquier dato que facilite la revisión del código.
 
 ---
 
