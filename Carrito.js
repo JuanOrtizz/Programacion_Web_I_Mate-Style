@@ -39,16 +39,10 @@ class Carrito {
     // funcion para calcular el total del carrito
     calcularTotalCarrito(){
         let totalCarrito = 0
-        if (this.productos.length !== 0) {
-            for (let producto of this.productos) {
-                totalCarrito += parseFloat(producto.precio * producto.cantidad)  // suma los precios de los productos en el carrito
-            }
-            return totalCarrito.toFixed(2) // retorna el total con 2 decimales
-        } else {
-            return "0.00"  // si no hay productos retorna $0
-        }
+        return this.productos
+        .reduce((total, producto) => total + producto.precio * producto.cantidad, 0)
+        .toFixed(2) // retorna el total con 2 decimales y si esta vacio retorna 0.00
     }
-
 
 }
 

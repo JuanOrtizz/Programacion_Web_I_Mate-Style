@@ -4,7 +4,7 @@ import Carrito from "./Carrito.js"
 //DOM PARA EL PAGO_REALIZADO.HTML
 // funcion para modificar la informacion del pago
 // recupero los valores del sessionStorage
-let mdpPagoRealizado = sessionStorage.getItem('mdp')
+const mdpPagoRealizado = sessionStorage.getItem('mdp') // esto esta realizado como variable ya que le cambio el valor numerico del select a valor string para utilizarlo como modificaciones del DOM en el HTML
 const emailPagoRealizado = sessionStorage.getItem('email')
 const totalPagoRealizado = sessionStorage.getItem('totalPago')
 
@@ -17,15 +17,16 @@ const totalElemento = document.getElementById('total-pago-realizado')
 document.addEventListener('DOMContentLoaded', () => {
     // si ninguno de los elementos es null recien ejecuta esto.
     if(emailElemento && mdpElemento && totalElemento){
+        let medioDePago // creo la variable para asignarla al dom
         //asigno los datos
         emailElemento.textContent = emailPagoRealizado
 
         if(mdpPagoRealizado === "1"){
-            mdpPagoRealizado = "Debito"
+            medioDePago = "Debito"
         }else if(mdpPagoRealizado === "2"){
-            mdpPagoRealizado = "Credito"
+            medioDePago = "Credito"
         }
-        mdpElemento.textContent = mdpPagoRealizado
+        mdpElemento.textContent = medioDePago
 
         totalElemento.textContent = totalPagoRealizado
     }
@@ -35,13 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // MANEJO DE LA PESTAÑANA PANTALLA_CARGA_COMPRA.HTML
 // funcion asincrona para obtener las frases de una api de mockAPI que cree yo.
 async function cargarApiFrases() {
-    fetch("https://67474f1a38c8741641d64755.mockapi.io/frases")
-    .then(response => response.json())
-    .then(data =>
-        {const frases = data.map(item => item.frase) // utiliza map
-        crearFraseDeCompra(frases)
-        }
-    )    
+    try {
+        const response = await fetch("https://67474f1a38c8741641d64755.mockapi.io/frases")
+        if (!response.ok) throw new Error('Error en la carga: ' + response.status)
+        const data = await response.json()
+        const frases = data.map(item => item.frase)
+        crearFraseDeCompra(frases);
+    } catch (error) {
+        console.error("Error al cargar las frases:", error)
+    }
 }
 
 // funcion para crear la frase de compra
