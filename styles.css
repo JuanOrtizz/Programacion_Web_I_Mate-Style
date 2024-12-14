@@ -510,7 +510,7 @@ iframe{
     margin-top: 0;
     padding:20px;
     box-sizing: border-box; 
-    gap: 5%;
+    gap: 2%;
     grid-template-columns: 20% 1fr; 
     grid-template-rows: auto auto; 
     grid-template-areas: 
@@ -541,7 +541,7 @@ iframe{
 .contenedor-interno-filtro input{
     border-radius: 10px;
     height: 3vh;
-    width: 80%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 2vh;
     box-sizing: border-box;
@@ -555,7 +555,7 @@ iframe{
 .contenedor-interno-filtro button{
     background-color: #6B8E23;
     height: 30px;
-    width: 80%;
+    width: 100%;
     padding: 0;
     margin: 0;
     border: none;
@@ -584,6 +584,16 @@ iframe{
     box-sizing: border-box;
     gap: 10px;
     justify-items: center;
+}
+
+.texto-filtro-sin-productos{
+    color: #646464;
+    font-size: 1.3rem;
+    grid-column: 1 / 4; 
+    grid-row: 1/ 3;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
 }
 
 .producto-unitario{
@@ -652,15 +662,20 @@ iframe{
 }
 
 .producto-unitario button:hover{
-    background-color: #afff02;
+    background-color: #81c92f;
     transition: 0.5s; 
+}
+
+.producto-unitario button:active{
+    background-color: #345f02;
+    transition: 0.1s; 
 }
 
 /*MAIN (CARRITO_PAGO.HTML)*/
 .contenedor-pago{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10% 1fr 1fr 10%; 
+    grid-template-rows: auto; 
     grid-template-areas:
     "titulo titulo"
     "carrito usuario"
@@ -670,6 +685,7 @@ iframe{
     width: 80%;
     margin: 10%;
     padding: 20px;
+    padding-top: 0;
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: #262B30 2px 2px 10px;
@@ -687,6 +703,7 @@ iframe{
     align-items: flex-end;
     justify-content: center;
     font-size:1.5rem;
+    margin-top: 50px;
 }
 
 .titulo-compra hr{
@@ -701,7 +718,7 @@ iframe{
 
 .carrito-pago{
     width: auto;
-    margin: 40px 7vw 20px 7vw;
+    margin: 40px 0vw 20px 0;
     padding: 20px;
     background-color: #FFFFFF;
     grid-area: carrito;
@@ -709,9 +726,16 @@ iframe{
     align-self:flex-start;
 }
 
+.carrito-pago h2{
+    text-align: center;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #afafaf;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
 .productos-carrito-pago{
     height: auto;
-    /*agrego despues el estilo cuando ya se agreguen automaticamente los procutos al apretar agregar al carrito*/
 }
 
 .productos-carrito-pago h2{
@@ -720,21 +744,112 @@ iframe{
     margin: 0;
 }
 
+.producto-interno-carrito{
+    background-color: #f5f5f5;
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    grid-template-rows: auto; 
+    grid-template-areas:
+    "imagen nombre precio botones eliminar";
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #afafaf ;
+}
+
+.eliminar-producto-interno span{
+    color: rgb(216, 0, 0);
+}
+
+.imagen-producto-interno{
+    grid-area: imagen;
+    height: 70px;
+    width: 60px;
+}
+
+.nombre-producto-interno{
+    grid-area: nombre;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.precio-producto span{
+    grid-area: precio;
+    font-size: 1rem ;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.cantidad-stock{
+    display: flex;
+    grid-area: botones;
+    justify-content: center; 
+    align-items: center;  
+    margin: 0;
+    gap: 10px;
+    padding: 0;
+}
+
+.cantidad-stock button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px; 
+    border-radius: 50%;
+    border: 1px solid #2b2c28;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.cantidad-stock button:hover{
+    background-color: #b6b6b6;
+}
+
+.cantidad-stock p{
+    grid-area: botones;
+    padding: 0;
+    margin: 0;
+}
+
+.eliminar-producto-interno{
+    grid-area: eliminar;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+    border: 0;
+}
+
 .total-pago {
+    margin-top: 15px;
     height: auto;
     width: 100%;
-    padding: 10px;
+    padding: 10px 40px 10px 40px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+}
+
+.total-pago p{
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 .contenedor-datos-usuario{
     height: auto;
     width: auto;
-    margin: 20px 7vw 20px 0;
+    margin: 20px 7vw 20px 5vw;
     padding: 20px;
     grid-area: usuario;
     border-bottom: #262B30 1px solid ;
@@ -764,7 +879,7 @@ iframe{
 .contenedor-datos-tarjeta{
     height: auto;
     width: auto ;
-    margin: 0px 7vw 20px 0;
+    margin: 0px 7vw 20px 5vw;
     padding: 20px;
     grid-area: tarjeta;
 }
@@ -847,6 +962,23 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+/*diseño para errores de input en entradas invalidas de datos*/
+.input-error {
+    border: 2px solid #f00014 !important; 
+}
+
+.input-error:focus{
+    border: 0 !important;
+}
+
+.error-text {
+    color: #e63946;
+    font-size: 0.8rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
 /*MAIN (PREGFRECUENTES.HTML)*/
 .titulo-preguntas{
     height: 10vh;
@@ -888,6 +1020,46 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .acordeon-boostrap button:focus {
     box-shadow: none;
+}
+
+/*DISEÑO PANTALLA_CARGA_COMPRA.HTML*/
+.barra-progreso{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    margin: 100px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.contenedor-barra-progreso{
+    height: 70%;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+#contenedor-frase p{
+    font-size: 2rem;
+    color: #435a0e;
+    text-align: center;
+}
+
+.progress-bar {
+    background-color: #345f02 !important;
 }
 
 /*diseño del footer compartido por todas las paginas*/
@@ -1142,6 +1314,12 @@ footer{
         font-size: 0.8rem;
     }
 
+    
+    /*DISEÑO PANTALLA_CARGA_COMPRA.HTML*/
+    #contenedor-frase p{
+        font-size: 1.7rem;
+    }
+
     /*MAIN (mates, bombillas, accesorios y termos)*/
 
     .contenedor-titulo h1{
@@ -1170,6 +1348,10 @@ footer{
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+    .texto-filtro-sin-productos{
+        font-size: 0.8rem;
+    }
+
     .producto-unitario {
         width: 15vw;
         height: 45vh;
@@ -1188,6 +1370,7 @@ footer{
     }
 
     /*MAIN (CARRITO_PAGO.HTML)*/
+    
     .contenedor-pago {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
@@ -1279,7 +1462,7 @@ footer{
         font-size: 0.8rem; 
         font-weight: bold; 
     }
-    
+
     /*diseño del footer*/
 
     footer {
@@ -1436,6 +1619,45 @@ footer{
         margin-bottom: 40px; 
     }
 
+    /*Main carrito_pago.html*/
+    .carrito-pago h2{
+        font-size: 1rem;
+    }
+
+    .imagen-producto-interno{
+        height: 50px;
+        width: 40px;
+    }
+    
+    .nombre-producto-interno{
+        font-size: 0.7rem;
+    }
+    
+    .precio-producto span{
+        font-size: 0.7rem ;
+    }
+    
+    .cantidad-stock{
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .cantidad-stock button{
+        width: 18px;
+        height: 18px; 
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    .cantidad-stock p{
+        font-size: 0.7rem;
+    }
+    
+    .total-pago p{
+        font-size: 0.7rem;
+    }
+
     /*MAIN (PAGO_REALIZADO.HTML)*/
 
     .contenedor-compra-realizada h1 {
@@ -1482,6 +1704,10 @@ footer{
         gap: 30px;
     }
 
+    .texto-filtro-sin-productos{
+        font-size: 0.6rem;
+    }
+
     .producto-unitario {
         width: 20vw;
         height: 40vh;
@@ -1507,6 +1733,19 @@ footer{
 
     .titulo-preguntas hr {
         width: 60%;
+    }
+
+    
+    /*DISEÑO PANTALLA_CARGA_COMPRA.HTML*/
+    .barra-progreso{
+        padding: 10px;
+        margin: 10px;
+        margin-top: 50px;
+        gap: 10px;
+    }
+
+    #contenedor-frase p{
+        font-size: 1.4rem;
     }
 
     /*diseño del footer*/
@@ -1671,6 +1910,10 @@ footer{
     }
 
     /*MAIN (INDEX.HTML)*/
+    .contenedor-hero {
+        height: 30vh;
+    }
+
     .contenedor-hero h1 {
         font-size: 1.5rem; 
         margin-top: 2vh;
@@ -1682,16 +1925,18 @@ footer{
         flex-wrap: wrap;
         width: 50%;
         margin: 2vh 0;
+        gap: 20px;
     }
 
     .botones-img-index {
         height: 50vw; 
         width: 90%;
         padding: 5px;
+        
     }
 
     .h2-img h2{
-        font-size: 0.7rem !important; 
+        font-size: 0.8rem !important; 
     }
 
     .contenedor-info-nosotros {
@@ -1703,10 +1948,11 @@ footer{
         width: 100%;
         margin: 15px;
         height: auto;
+        margin-top: 0;
     }
 
     .info-nosotros h3 {
-        font-size: 1rem !important;
+        font-size: 1.2rem !important;
     }
 
     .info-nosotros hr{
@@ -1715,7 +1961,7 @@ footer{
 
     .info-nosotros p {
         margin-top: 5px;
-        font-size: 0.6rem; 
+        font-size: 0.7rem; 
     }
 
     .contenedor-info-importante {
@@ -1739,15 +1985,15 @@ footer{
     }
 
     .info-impor h4 {
-        font-size: 0.7rem !important; 
+        font-size: 0.8rem !important; 
     }
 
     .info-impor p {
-        font-size: 0.5rem !important; 
+        font-size: 0.6rem !important; 
     }
 
     .titulo-video h4{
-        font-size: 0.8rem !important;
+        font-size: 0.9rem !important;
     }
 
     .contenedor-video hr{
@@ -1777,6 +2023,7 @@ footer{
     .contenedor-carrusel{
         height: 20vh;
         width: 62vw;
+        margin-bottom: 45px;
     }
 
     .carrusel{
@@ -1862,9 +2109,15 @@ footer{
         margin-left: 40px;
     }
 
+    .texto-filtro-sin-productos{
+        font-size: 0.7rem;
+    }
+
+    
     .producto-unitario {
         width: 90%;
-        height: 35vh;
+        height:35vh;
+        grid-template-rows: 65% auto auto 10%;
     }
 
     .producto-unitario p {
@@ -1924,12 +2177,143 @@ footer{
         margin-bottom: 50px;
     }
 
+    /*MAIN CARRITO_PAGO.HTML*/
+    .titulo-compra{
+        margin: 20PX;
+    }
+
+    .titulo-compra h1 {
+        font-size: 1.4rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .titulo-compra hr {
+        width: 60vw;
+        margin-top: 10px;
+    }
+
+    .carrito-pago{
+        margin: 20px 0;
+        padding: 10px;
+    }
+    
+    .carrito-pago h2{
+        font-size: 1.2rem;
+    }
+    
+    .producto-interno-carrito{
+        justify-content: space-between;
+        grid-template-columns: 40px 70px 50px 60px 20px;
+    }
+
+    .eliminar-producto-interno span{
+        color: rgb(216, 0, 0);
+        font-size: 20px;
+    }
+
+    .eliminar-producto-interno {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .imagen-producto-interno{
+        height: 50px;
+        width: 40px;
+    }
+    
+    .nombre-producto-interno{
+        font-size: 0.7rem !important;
+        margin-right: 4px;
+        box-sizing: border-box;
+    }
+    
+    .precio-producto span{
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    
+    .total-pago {
+        margin-top: 15px;
+        height: auto;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cantidad-stock{
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .cantidad-stock button{
+        width: 18px;
+        height: 18px; 
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    .cantidad-stock p{
+        font-size: 0.7rem;
+    }
+    
+
+    .total-pago p{
+        align-items: center;
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contenedor-datos-usuario {
+        margin: 20px 0;
+    }
+
+    .contenedor-datos-usuario h2 {
+        font-size: 1.3rem;
+    }
+
+    .contenedor-pago label{
+        font-size: 0.9rem;
+    }
+
+    .contenedor-datos-usuario input {
+        font-size: 0.8rem;
+    }
+
+    .contenedor-datos-tarjeta {
+        margin: 20px 0;
+    }
+
+    .contenedor-datos-tarjeta h2 {
+        font-size: 1.3rem;
+    }
+
+    .contenedor-datos-tarjeta input, .contenedor-datos-tarjeta select {
+        font-size: 0.8rem;
+    }
+
+    .contenedor-boton-formulario button {
+        width: 80%;
+        font-size: 0.8rem;
+    }
+
+
     /*MAIN (PAGO_REALIZADO.HTML)*/
     .contenedor-compra-realizada{
         width: 100%;
         margin-left: 20px;
         margin-right: 20px;
         margin-top:40px;
+    }
+
+    /*DISEÑO PANTALLA_CARGA_COMPRA.HTML*/
+    #contenedor-frase p{
+        font-size: 1.2rem;
     }
 
     /*diseño del footer*/
@@ -1942,11 +2326,10 @@ footer{
     .contenedor-redes {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 5px;
+        margin-top: 20px;
     }
 
     .contenedor-redes li {
-        margin: 8px 0; 
         width: 10vw; 
     }
 
@@ -1957,10 +2340,12 @@ footer{
     .contenedor-contacto {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 25px;
+        margin-top: 0;
     }
 
     .contenedor-contacto p {
-        font-size: 0.6rem; 
+        font-size: 0.7rem; 
         margin: 5px;
     }
 }

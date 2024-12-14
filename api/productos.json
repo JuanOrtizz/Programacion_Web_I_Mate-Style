@@ -1,0 +1,219 @@
+[
+    {
+        "id": 1,
+        "nombre": "Mate Imperial Verde",
+        "precio": 9500,
+        "imagen": "Img/producto-mate1.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 2,
+        "nombre": "Mate de Algarrobo Negro",
+        "precio": 17000,
+        "imagen": "Img/producto-mate2.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 3,
+        "nombre": "Mate Imperial Boca",
+        "precio": 6500,
+        "imagen": "Img/producto-mate3.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 4,
+        "nombre": "Mate Imperial Negro",
+        "precio": 11500,
+        "imagen": "Img/producto-mate4.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 5,
+        "nombre": "Mate Imperial Argentina",
+        "precio": 6500,
+        "imagen": "Img/producto-mate5.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 6,
+        "nombre": "Mate Imperial Blanco",
+        "precio": 11500,
+        "imagen": "Img/producto-mate6.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 7,
+        "nombre": "Mate Imperial Marron",
+        "precio": 9500,
+        "imagen": "Img/producto-mate7.png",
+        "categoria": "mates"
+    },
+    { 
+        "id": 8,
+        "nombre": "Mate Metalico Negro",
+        "precio": 20500,
+        "imagen": "Img/producto-mate8.png",
+        "categoria": "mates"
+    },
+    {
+        "id": 9,
+        "nombre": "Bombilla Alpaca Chata",
+        "precio": 11000,
+        "imagen": "Img/producto-bombilla1.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 10,
+        "nombre": "Bombilla Alpaca Chata Tallada",
+        "precio": 15500,
+        "imagen": "Img/producto-bombilla2.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 11,
+        "nombre": "Bombilla Alpaca Chata",
+        "precio": 5500,
+        "imagen": "Img/producto-bombilla3.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 12,
+        "nombre": "Bombilla Alpaca Mundial 2022",
+        "precio": 7500,
+        "imagen": "Img/producto-bombilla4.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 13,
+        "nombre": "Bombilla Alpaca Punta Chata",
+        "precio": 10000,
+        "imagen": "Img/producto-bombilla5.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 14,
+        "nombre": "Bombilla Tallada Pesca Alpaca",
+        "precio": 15600,
+        "imagen": "Img/producto-bombilla6.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 15,
+        "nombre": "Bombilla Metalica Cuchara",
+        "precio": 9000,
+        "imagen": "Img/producto-bombilla7.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 16,
+        "nombre": "Bombilla Metalica Rosa",
+        "precio": 3500,
+        "imagen": "Img/producto-bombilla8.png",
+        "categoria": "bombillas"
+    },
+    {
+        "id": 17,
+        "nombre": "Termo Stanley Negro 1,3L",
+        "precio": 35000,
+        "imagen": "Img/producto-termo1.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 18,
+        "nombre": "Termo Stanley Blanco 1,3L",
+        "precio": 35000,
+        "imagen": "Img/producto-termo2.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 19,
+        "nombre": "Termo Stanley Clasico 1,5L",
+        "precio": 35000,
+        "imagen": "Img/producto-termo3.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 20,
+        "nombre": "Termo Montagne Acero 3L",
+        "precio": 45000,
+        "imagen": "Img/producto-termo4.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 21,
+        "nombre": "Termo Acero Argentina 2022 1L",
+        "precio": 25000,
+        "imagen": "Img/producto-termo5.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 22,
+        "nombre": "Termo Lumilagro Rojo 1L",
+        "precio": 15000,
+        "imagen": "Img/producto-termo6.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 23,
+        "nombre": "Termo Lumilagro Acero 1L",
+        "precio": 35000,
+        "imagen": "Img/producto-termo7.png",
+        "categoria": "termos"
+    },
+    {
+        "id": 24,
+        "nombre": "Bolso Cuero Negro",
+        "precio": 15000,
+        "imagen": "Img/producto-accesorio1.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 25,
+        "nombre": "Porta Bombillas de Metal",
+        "precio": 12500,
+        "imagen": "Img/producto-accesorio2.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 26,
+        "nombre": "Tapa de Alpaca Tallada",
+        "precio": 5500,
+        "imagen": "Img/producto-accesorio3.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 27,
+        "nombre": "Bolso Matero Gris",
+        "precio": 19900,
+        "imagen": "Img/producto-accesorio4.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 28,
+        "nombre": "Porta Mate Cuero Negro",
+        "precio": 10000,
+        "imagen": "Img/producto-accesorio5.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 29,
+        "nombre": "Yerbera y Azucarera Negra",
+        "precio": 8000,
+        "imagen": "Img/producto-accesorio6.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 30,
+        "nombre": "Yerbera Racing",
+        "precio": 4500,
+        "imagen": "Img/producto-accesorio7.png",
+        "categoria": "accesorios"
+    },
+    {
+        "id": 31,
+        "nombre": "Yerbera Negra Tela",
+        "precio": 11500,
+        "imagen": "Img/producto-accesorio8.png",
+        "categoria": "accesorios"
+    }
+]
