@@ -62,15 +62,6 @@
         </nav>
     </header>
     <main>
-        <section class="contenedor-carrito" id="carrito"><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
-            <div class="carrito-productos"><!--Div con la parte de los productos del carrito-->
-                <!--aca irian los productos que esten en el carrito (imagen, nombre y precio). No se si tengo que crear un modelo desde aca o con lo que aprenderemos luego crearlo.-->
-                <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
-            </div>
-            <div id="carrito-comprar"><!--Div con el boton comprar-->
-                <a href="carrito_pago.html"><button type="submit">Comprar</button></a>
-            </div>
-        </section>
         <section class="contenedor-titulo"><!--Section con el titulo de la seccion, accesorios y una linea-->
             <h1>Accesorios</h1>
             <hr>
@@ -86,7 +77,7 @@
             </div>
             
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -102,59 +93,10 @@
                 </div>
             </div>
 
-            <div class="contenedor-de-productos">
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio1.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Bolso Cuero Negro</p>
-                    <h3 class = "precio-producto">$15000</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio2.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Porta Bombillas de Metal</p>
-                    <h3 class = "precio-producto">$12500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio3.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Tapa de Alpaca Tallada</p>
-                    <h3 class = "precio-producto">$5500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio4.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Bolso Matero Gris</p>
-                    <h3 class = "precio-producto">$19900</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio5.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Porta Mate Cuero Negro</p>
-                    <h3 class = "precio-producto">$10000</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio6.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Yerbera y Azucarera Negra</p>
-                    <h3 class = "precio-producto">$8000</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio7.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Yerbera Racing</p>
-                    <h3 class = "precio-producto">$4500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto accesorio que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-accesorio8.png" alt="Producto-Accesorio1">
-                    <p class = "nombre-producto">Yerbera Negra Tela</p>
-                    <h3 class = "precio-producto">$11500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
+            <div class="contenedor-de-productos"><!--Aca se van a cargar por el JSON los productos--></div>
 
-                <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
+            <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
 
-            </div>
         </section>
     </main>
     <footer>

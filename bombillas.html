@@ -62,15 +62,6 @@
         </nav>
     </header>
     <main>
-        <section class="contenedor-carrito" id="carrito"><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
-            <div class="carrito-productos"><!--Div con la parte de los productos del carrito-->
-                <!--aca irian los productos que esten en el carrito (imagen, nombre y precio). No se si tengo que crear un modelo desde aca o con lo que aprenderemos luego crearlo.-->
-                <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
-            </div>
-            <div id="carrito-comprar"><!--Div con el boton comprar-->
-                <a href="carrito_pago.html"><button type="submit">Comprar</button></a>
-            </div>
-        </section>
         <section class="contenedor-titulo"><!--Section con el titulo de la seccion, que es bombillas y una linea-->
             <h1>Bombillas</h1>
             <hr>
@@ -86,7 +77,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -102,59 +93,10 @@
                 </div>
             </div>
 
-            <div class="contenedor-de-productos">
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla1.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Alpaca Chata</p>
-                    <h3 class="precio-producto">$11000</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla2.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Alpaca Chata Tallada</p>
-                    <h3 class="precio-producto">$15500</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla3.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Alpaca Chata</p>
-                    <h3 class="precio-producto">$5500</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla4.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Alpaca Mundial 2022</p>
-                    <h3 class="precio-producto">$7500</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla5.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Alpaca Punta Chata</p>
-                    <h3 class="precio-producto">$10000</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla6.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Tallada Pesca Alpaca</p>
-                    <h3 class="precio-producto">$15600</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla7.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Metalica Cuchara</p>
-                    <h3 class="precio-producto">$9000</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto Bombillas que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class="imagen-producto" src="Img/producto-bombilla8.png" alt="Producto-bombilla1">
-                    <p class="nombre-producto">Bombilla Metalica Rosa</p>
-                    <h3 class="precio-producto">$3500</h3>
-                    <button type="button" class="boton-productos">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
+            <div class="contenedor-de-productos"><!--Aca se van a cargar por el JSON los productos--></div>
 
-                <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
+            <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
 
-            </div>
         </section>
     </main>
     <footer>

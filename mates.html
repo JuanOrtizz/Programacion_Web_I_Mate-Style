@@ -62,15 +62,6 @@
             </nav>
     </header>
     <main>
-        <section class="contenedor-carrito" id="carrito"><!--Section que tiene el carrito de compras desplegado, luego con Css y JS le daremos estilo y funcionalidad, haciendolo interactivo-->
-            <div class="carrito-productos"><!--Div con la parte de los productos del carrito-->
-                <!--aca irian los productos que esten en el carrito (imagen, nombre y precio). No se si tengo que crear un modelo desde aca o con lo que aprenderemos luego crearlo.-->
-                <!--Y tambien va a tener un boton para restar ese producto del carrito.-->
-            </div>
-            <div id="carrito-comprar"><!--Div con el boton comprar-->
-                <a href="carrito_pago.html"><button type="submit">Comprar</button></a>
-            </div>
-        </section>
         <section class="contenedor-titulo"><!--Section con el titulo de la seccion, en este caso mates y una linea-->
             <h1>Mates</h1>
             <hr>
@@ -86,7 +77,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -102,59 +93,10 @@
                 </div>
             </div>
 
-            <div class="contenedor-de-productos">
-                <div class = "producto-unitario"><!--Div con la estructura de un producto mate que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-mate1.png" alt="Producto-mate1">
-                    <p class = "nombre-producto">Mate Imperial Verde</p>
-                    <h3 class="precio-producto">$9500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto mate que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-mate2.png" alt="Producto-mate1">
-                    <p class = "nombre-producto">Mate de Algarrobo Negro</p>
-                    <h3 class = "precio-producto">$17000</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto mate que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto"  src="Img/producto-mate3.png" alt="Producto-mate1">
-                    <p class = "nombre-producto">Mate Imperial Boca</p>
-                    <h3 class = "precio-producto">$6500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class = "producto-unitario"><!--Div con la estructura de un producto mate que luego va a poder ser creado mediante JS las veces que necesitemos-->
-                    <img class= "imagen-producto" src="Img/producto-mate4.png" alt="Producto-mate1">
-                    <p class = "nombre-producto">Mate Imperial Negro</p>
-                    <h3 class = "precio-producto">$11500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button> <!--Boton para agregar el producto al carrito-->
-                </div>
-                <div class="producto-unitario">
-                    <img class="imagen-producto" src="Img/producto-mate5.png" alt="Producto-mate1">
-                    <p class="nombre-producto">Mate Imperial Argentina</p>
-                    <h3 class="precio-producto">$6500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button>
-                </div>
-                <div class="producto-unitario">
-                    <img class="imagen-producto" src="Img/producto-mate6.png" alt="Producto-mate1">
-                    <p class="nombre-producto">Mate Imperial Blanco</p>
-                    <h3 class="precio-producto">$11500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button>
-                </div>
-                <div class="producto-unitario">
-                    <img class="imagen-producto" src="Img/producto-mate7.png" alt="Producto-mate1">
-                    <p class="nombre-producto">Mate Imperial Marron</p>
-                    <h3 class="precio-producto">$9500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button>
-                </div>
-                <div class="producto-unitario">
-                    <img class="imagen-producto" src="Img/producto-mate8.png" alt="Producto-mate1">
-                    <p class="nombre-producto">Mate Metalico Negro</p>
-                    <h3 class="precio-producto">$20500</h3>
-                    <button class= "boton-productos" type="submit">Agregar al carrito</button>
-                </div>
-                
-                <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
-                
-            </div>
+            <div class="contenedor-de-productos"><!--Aca se van a cargar por el JSON los productos--></div>
+
+            <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div> <!--Contenedor para mostrar los toasts, popups de que se agregó-->
+
         </section>
     </main>
     <footer>
