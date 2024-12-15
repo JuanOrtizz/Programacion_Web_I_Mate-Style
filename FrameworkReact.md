@@ -14,7 +14,7 @@ Proveer una solución para construir interfaces de usuario eficientes y reactiva
 ## **Motivación y justificación**
 **¿Por qué React?**
 - React es ideal para aplicaciones interactivas y dinámicas, ya que permite actualizar solo las partes de la interfaz que cambian, mejorando la eficiencia. Esto puede ser muy útil en mi proyecto por esas razones. 
-- "según lo que investigué, la comunidad de React es muy activa y ofrece una gran cantidad de recursos, bibliotecas y herramientas que pueden facilitar el desarrollo y escalabilidad del proyecto.
+- Según lo que investigué, la comunidad de React es muy activa y ofrece una gran cantidad de recursos, bibliotecas y herramientas que pueden facilitar el desarrollo y escalabilidad del proyecto.
 - Ademas su arquitectura basada en componentes hace que sea fácil de integrar y mantener, incluso en proyectos grandes, como tengo previsto que mi proyecto crezca.
 
 ## **Nivel de dificultad de adaptación**
