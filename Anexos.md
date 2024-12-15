@@ -43,5 +43,5 @@
 | **Documentación**        | Moderna y directa                           | Completa pero más densa                     |
 
 ## Frameworks elegidos
-- **[Framework Angular]()** 
-- **[Biblioteca React]()**
+- **[Framework Angular](https://github.com/JuanOrtizz/Programacion_Web_I_Mate-Style/blob/52c5111d8dda39cbe1628613c9cf3f55697bcdc5/FrameworkAngular.md)** 
+- **[Biblioteca React](https://github.com/JuanOrtizz/Programacion_Web_I_Mate-Style/blob/52c5111d8dda39cbe1628613c9cf3f55697bcdc5/FrameworkReact.md)**
